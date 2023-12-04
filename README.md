@@ -14,15 +14,15 @@ Get started to use Git:
 4.1 git branch
 
 kalo masih branch main, ketik kode ini: <br>
-5. git pull origin ui
-5.1 git branch
-5.2 git checkout ui
+5. git pull origin ui <br>
+5.1 git branch <br>
+5.2 git checkout ui <br>
 
 kalo branch udh pindah ke branch ui, jangan diubah lagi ke main, nanti ngodingnya buat ui disini
 
 Upload dan simpan code ke github:
-6. git add . (artinya menambahkan semua perubahan untuk diupload ke repo/stage changes)
-7. git commit -m "tambahin pesannya apa"
-8. git pull origin ui 
-9. git push -u origin ui
-10. selesai
+6. git add . (artinya menambahkan semua perubahan untuk diupload ke repo/stage changes) <br>
+7. git commit -m "tambahin pesannya apa" <br>
+8. git pull origin ui <br>
+9. git push -u origin ui <br>
+10. selesai <br>
