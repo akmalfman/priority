@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+<<<<<<< HEAD
   <component name="Kotlin2JvmCompilerArguments">
     <option name="jvmTarget" value="1.8" />
   </component>
+=======
+>>>>>>> 5e9add4bbc650ca3943b005bd18cbc35726a0c32
   <component name="KotlinJpsPluginSettings">
     <option name="version" value="1.9.0" />
   </component>
