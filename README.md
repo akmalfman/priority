@@ -20,7 +20,7 @@ kalo masih branch main, ketik kode ini: <br>
 
 kalo branch udh pindah ke branch ui, jangan diubah lagi ke main, nanti ngodingnya buat ui disini
 
-Upload dan simpan code ke github:
+Upload dan simpan code ke github: <br>
 6. git add . (artinya menambahkan semua perubahan untuk diupload ke repo/stage changes) <br>
 7. git commit -m "tambahin pesannya apa" <br>
 8. git pull origin ui <br>
