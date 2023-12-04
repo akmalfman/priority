@@ -13,7 +13,7 @@ Get started to use Git:
 4. Cek git branch, apa aja branch yang udh di clone ke lokal:
 4.1 git branch
 
-kalo masih branch main, ketik kode ini:
+kalo masih branch main, ketik kode ini: <br>
 5. git pull origin ui
 5.1 git branch
 5.2 git checkout ui
