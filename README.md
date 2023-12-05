@@ -26,3 +26,10 @@ Upload dan simpan code ke github: <br>
 8. git pull origin ui <br>
 9. git push -u origin ui <br>
 10. selesai <br>
+
+akmalfman 05/12/23 (18:21 WIB)
+- add icon dummy
+- add menu/bottom_menu.xml
+- add dependencies smoothbar & circleimageview
+- add string for bottombar
+- add maven url "jitpack.io"
