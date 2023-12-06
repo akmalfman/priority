@@ -6,26 +6,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="?android:attr/windowBackground"
-        app:itemBackground="?android:attr/windowBackground"
-        app:menu="@menu/bottom_navigation_menu" />
-
-    <TextView
-        android:id="@+id/priorityTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Priority!"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
