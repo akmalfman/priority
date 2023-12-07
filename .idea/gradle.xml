@@ -8,6 +8,12 @@
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleHome" value="D:/DOWNLOADS/gradle-8.3-all/gradle-8.3" />
         <option name="gradleJvm" value="#JAVA_HOME" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+          </set>
+        </option>
       </GradleProjectSettings>
     </option>
   </component>
