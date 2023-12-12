@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ProfileActivity">
+    tools:context=".ProfileFragment">
+
 
     <ImageView
         android:id="@+id/img_item_photo"
@@ -316,18 +317,5 @@
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
-
-    <me.ibrahimsn.lib.SmoothBottomBar
-        android:id="@+id/bottomBar"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:contentDescription="bottomBar"
-        app:backgroundColor="#6DB9EF"
-        app:iconSize="22dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu"
-        app:textSize="14sp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,10 +13,28 @@
         android:theme="@style/Theme.Priority"
         tools:targetApi="31">
         <activity
-            android:name=".ProfileActivity"
+            android:name=".HelpActivity"
             android:exported="false" />
         <activity
-            android:name=".RecommendationActivity"
+            android:name=".FaqActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HistoryReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CalculatorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
