@@ -1,28 +1,32 @@
 package com.example.priority
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import com.example.priority.databinding.ActivitySignUpBinding
 import android.content.Intent
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.priority.databinding.ActivitySignUpBinding
 import com.google.firebase.auth.FirebaseAuth
 
 class SignUpActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignUpBinding
-    private lateinit var auth: FirebaseAuth
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        auth = FirebaseAuth.getInstance()
+        mAuth = FirebaseAuth.getInstance()
 
-        txtSignInListener()
+        setTxtSignInListener()
     }
 
-    private fun txtSignInListener() {
+    private fun setTxtSignInListener() {
         binding.txtSignin.setOnClickListener {
-            startActivity(Intent(this, SignInActivity::class.java))
+            startSignInActivity()
         }
+    }
+
+    private fun startSignInActivity() {
+        startActivity(Intent(this, SignInActivity::class.java))
     }
 }
