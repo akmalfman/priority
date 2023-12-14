@@ -49,4 +49,19 @@
     </string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string name="signup_short">SIGN UP</string>
+    <string name="signin_short">SIGN IN</string>
+    <string name="signout_short">SIGN OUT</string>
+    <string name="fname_txt">Nama Lengkap</string>
+    <string name="email_txt">Email</string>
+    <string name="password_txt">Password</string>
+    <string name="confirm_password_txt">Konfirmasi Password</string>
+    <string name="link_signup_txt_long">Sudah punya akun?</string>
+    <string name="link_signin_txt_long">Belum punya akun?</string>
+    <string name="link_signin_txt">Sign In</string>
+    <string name="link_signup_txt">Sign Up</string>
+
+    <string name="desc_signup_txt">Buat akun</string>
 </resources>
