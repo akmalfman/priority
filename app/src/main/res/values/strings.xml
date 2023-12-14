@@ -54,6 +54,7 @@
     <string name="signup_short">SIGN UP</string>
     <string name="signin_short">SIGN IN</string>
     <string name="signout_short">SIGN OUT</string>
+    <string name="fname_txt">Nama Lengkap</string>
     <string name="email_txt">Email</string>
     <string name="password_txt">Password</string>
     <string name="confirm_password_txt">Konfirmasi Password</string>
