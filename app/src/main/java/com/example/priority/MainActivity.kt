@@ -6,7 +6,6 @@ import com.example.priority.databinding.ActivityMainBinding
 import androidx.core.view.MenuItemCompat
 import androidx.core.view.get
 import androidx.fragment.app.Fragment
-import com.example.priority.databinding.ActivityProfileBinding
 import me.ibrahimsn.lib.SmoothBottomBar
 
 class MainActivity : AppCompatActivity(),  OnSmoothBottomBarItemSelectedListener {
@@ -18,6 +17,7 @@ class MainActivity : AppCompatActivity(),  OnSmoothBottomBarItemSelectedListener
         setContentView(binding.root)
 
         gantiFragment(DashboardFragment())
+
         binding.bottomBar.setOnItemSelectedListener {
             when(it){
                 0 -> gantiFragment(DashboardFragment())

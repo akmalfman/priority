@@ -58,5 +58,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.github.ibrahimsn98:SmoothBottomBar:1.7.9")
     implementation("de.hdodenhof:circleimageview:3.1.0")
+
     implementation("com.google.firebase:firebase-analytics:21.5.0")
 }
