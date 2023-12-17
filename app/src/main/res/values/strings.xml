@@ -62,6 +62,7 @@
     <string name="link_signin_txt_long">Belum punya akun?</string>
     <string name="link_signin_txt">Sign In</string>
     <string name="link_signup_txt">Sign Up</string>
+    <string name="link_signout_txt">Sign Out</string>
 
     <string name="desc_signup_txt">Buat akun</string>
 </resources>
