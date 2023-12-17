@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.priority.databinding.ActivityMainBinding
 import com.example.priority.databinding.FragmentDashboardBinding
+import com.google.firebase.auth.FirebaseAuth
 import me.ibrahimsn.lib.SmoothBottomBar
 
 class DashboardFragment : Fragment(){
@@ -15,6 +16,8 @@ class DashboardFragment : Fragment(){
     private lateinit var binding: FragmentDashboardBinding
 
     private var listener: OnSmoothBottomBarItemSelectedListener? = null
+
+    private lateinit var mAuth: FirebaseAuth
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -51,6 +54,19 @@ class DashboardFragment : Fragment(){
             listener?.onItemSelected(1)
         }
 
+        mAuth = FirebaseAuth.getInstance()
 
+        // Tampilkan nama pengguna atau pesan jika belum login
+        updateUserName()
+    }
+
+    private fun updateUserName() {
+        mAuth.currentUser?.let { currentUser ->
+            val displayName = currentUser.displayName
+
+            binding.tvName.text = displayName ?: currentUser.email ?: "Pengguna belum login"
+        } ?: run {
+            binding.tvName.text = "Pengguna belum login"
+        }
     }
 }
