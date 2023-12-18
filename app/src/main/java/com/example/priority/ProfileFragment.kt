@@ -120,10 +120,14 @@ class ProfileFragment : Fragment() {
         with(binding) {
             tvRiwayatLaporan.setOnClickListener { replaceFragment(HistoryReportFragment()) }
             imgNextHistory.setOnClickListener { replaceFragment(HistoryFragment()) }
-            imgNextEditProfile.setOnClickListener { replaceFragment(EditProfileFragment()) }
-            imgNextTentangAplikasi.setOnClickListener { replaceFragment(AboutFragment()) }
-            imgNextFaq.setOnClickListener { replaceFragment(FaqFragment()) }
-            imgNextBantuan.setOnClickListener { replaceFragment(HelpFragment()) }
+            EditProfile.setOnClickListener { replaceFragment(HistoryFragment()) }
+//            imgNextEditProfile.setOnClickListener { replaceFragment(EditProfileFragment()) }
+            TentangAplikasi.setOnClickListener { replaceFragment(AboutFragment()) }
+//            imgNextTentangAplikasi.setOnClickListener { replaceFragment(AboutFragment()) }
+            FAQ.setOnClickListener { replaceFragment(FaqFragment()) }
+//            imgNextFaq.setOnClickListener { replaceFragment(FaqFragment()) }
+            Bantuan.setOnClickListener { replaceFragment(HelpFragment()) }
+//            imgNextBantuan.setOnClickListener { replaceFragment(HelpFragment()) }
             btnSignOut.setOnClickListener { signOut() }
         }
     }
