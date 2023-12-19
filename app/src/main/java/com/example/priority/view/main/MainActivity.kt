@@ -1,14 +1,16 @@
-package com.example.priority
+package com.example.priority.view.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.priority.databinding.ActivityMainBinding
-import androidx.core.view.MenuItemCompat
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
-import me.ibrahimsn.lib.SmoothBottomBar
+import com.example.priority.view.calculator.CalcFragment
+import com.example.priority.view.CameraFragment
+import com.example.priority.utils.OnSmoothBottomBarItemSelectedListener
+import com.example.priority.view.profile.ProfileFragment
+import com.example.priority.R
 
-class MainActivity : AppCompatActivity(),  OnSmoothBottomBarItemSelectedListener {
+class MainActivity : AppCompatActivity(), OnSmoothBottomBarItemSelectedListener {
 
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,7 +22,7 @@ class MainActivity : AppCompatActivity(),  OnSmoothBottomBarItemSelectedListener
         binding.bottomBar.setOnItemSelectedListener {
             when(it){
                 0 -> gantiFragment(DashboardFragment())
-                1 -> gantiFragment(TaskFragment())
+                1 -> gantiFragment(CameraFragment())
                 2 -> gantiFragment(CalcFragment())
                 3 -> gantiFragment(ProfileFragment())
             }

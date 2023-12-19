@@ -64,4 +64,5 @@
     <string name="link_signup_txt">Sign Up</string>
 
     <string name="desc_signup_txt">Buat akun</string>
+    <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu.</string>
 </resources>

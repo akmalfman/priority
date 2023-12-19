@@ -1,4 +1,4 @@
-package com.example.priority
+package com.example.priority.view.main
 
 import android.content.Context
 import android.os.Bundle
@@ -6,9 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.priority.databinding.ActivityMainBinding
+import com.example.priority.view.CameraFragment
+import com.example.priority.utils.OnSmoothBottomBarItemSelectedListener
+import com.example.priority.R
 import com.example.priority.databinding.FragmentDashboardBinding
-import me.ibrahimsn.lib.SmoothBottomBar
 
 class DashboardFragment : Fragment(){
 
@@ -39,11 +40,11 @@ class DashboardFragment : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         binding.btnSemua.setOnClickListener {
-            val taskFragment = TaskFragment()
+            val cameraFragment = CameraFragment()
 
             // Ganti fragment
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.frame, taskFragment)
+                .replace(R.id.frame, cameraFragment)
                 .addToBackStack(null)
                 .commit()
 

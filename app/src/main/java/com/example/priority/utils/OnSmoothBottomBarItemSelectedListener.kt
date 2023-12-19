@@ -1,4 +1,4 @@
-package com.example.priority
+package com.example.priority.utils
 
 interface OnSmoothBottomBarItemSelectedListener {
     fun onItemSelected(index: Int)

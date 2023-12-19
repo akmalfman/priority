@@ -1,4 +1,4 @@
-package com.example.priority
+package com.example.priority.view.profile
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

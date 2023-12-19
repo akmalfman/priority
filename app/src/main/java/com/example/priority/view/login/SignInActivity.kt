@@ -1,4 +1,4 @@
-package com.example.priority
+package com.example.priority.view.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
