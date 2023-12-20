@@ -2,14 +2,22 @@ package com.example.priority.view.main
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.example.priority.view.CameraFragment
 import com.example.priority.utils.OnSmoothBottomBarItemSelectedListener
 import com.example.priority.R
+import com.example.priority.data.ResultState
+import com.example.priority.data.response.AqiResponse
 import com.example.priority.databinding.FragmentDashboardBinding
+import com.example.priority.view.task.TaskFragment
 import com.google.firebase.auth.FirebaseAuth
 
 class DashboardFragment : Fragment(){
@@ -36,6 +44,13 @@ class DashboardFragment : Fragment(){
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
+
+        val bundle = arguments
+        val lat = bundle!!.getString("textAqiu")
+        Log.d("latdifrag", "onCreateView: $lat")
+        // Sets the derived data (type String) in the TextView
+        binding.tvTerakhir.text = lat
+
         return binding.root
     }
 
@@ -45,19 +60,22 @@ class DashboardFragment : Fragment(){
         mAuth = FirebaseAuth.getInstance()
 
         binding.btnRekomendasi.setOnClickListener {
-            val cameraFragment = CameraFragment()
+            val taskFragment = TaskFragment()
 
             // Ganti fragment
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.frame, cameraFragment)
+                .replace(R.id.frame, taskFragment)
                 .addToBackStack(null)
                 .commit()
 
+            // Panggil method di interface untuk memperbarui SmoothBottomBar di MainActivity
+            listener?.onItemSelected(1)
+
             // Tampilkan nama pengguna atau pesan jika belum login
             updateUserName()
+
         }
     }
-
     private fun updateUserName() {
         mAuth.currentUser?.let { currentUser ->
             val displayName = currentUser.displayName
