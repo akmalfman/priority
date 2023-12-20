@@ -5,5 +5,9 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <style name="buttonstyle" parent="Theme.AppCompat">
+        <item name="colorButtonNormal">@color/blue</item>
+    </style>
+
     <style name="Theme.Priority" parent="Base.Theme.Priority" />
 </resources>
