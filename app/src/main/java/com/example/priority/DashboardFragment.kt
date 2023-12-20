@@ -41,18 +41,18 @@ class DashboardFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnSemua.setOnClickListener {
-            val taskFragment = TaskFragment()
-
-            // Ganti fragment
-            requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.frame, taskFragment)
-                .addToBackStack(null)
-                .commit()
-
-            // Panggil method di interface untuk memperbarui SmoothBottomBar di MainActivity
-            listener?.onItemSelected(1)
-        }
+//        binding.btnSemua.setOnClickListener {
+//            val taskFragment = TaskFragment()
+//
+//            // Ganti fragment
+//            requireActivity().supportFragmentManager.beginTransaction()
+//                .replace(R.id.frame, taskFragment)
+//                .addToBackStack(null)
+//                .commit()
+//
+//            // Panggil method di interface untuk memperbarui SmoothBottomBar di MainActivity
+//            listener?.onItemSelected(1)
+//        }
 
         mAuth = FirebaseAuth.getInstance()
 
