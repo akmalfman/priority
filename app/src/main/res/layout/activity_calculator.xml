@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalculatorActivity">
+
+    <ImageView
+        android:id="@+id/img_item_photo"
+        android:layout_width="125dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="18dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="3dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/logo_txt" />
+
+    <TextView
+        android:id="@+id/tvHitungPolusi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/fredo"
+        android:text="Hitung Jumlah Polutan"
+        android:textColor="#3081D0"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_item_photo" />
+
+    <TextView
+        android:id="@+id/tvJenisTransportasi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/fredo"
+        android:text="Jenis Transportasi"
+        android:textColor="#6DB9EF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvHitungPolusi" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgMotor"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/motor_img"
+        app:layout_constraintEnd_toStartOf="@+id/imgMobil"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgBus"
+        app:layout_constraintTop_toTopOf="@+id/imgBus"
+        app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgMobil"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/mobil_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgMotor"
+        app:layout_constraintTop_toTopOf="@+id/imgBus"
+        app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgBus"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/bus_img"
+        app:layout_constraintEnd_toStartOf="@+id/imgMotor"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvJenisTransportasi"
+        app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+
+    <TextView
+        android:id="@+id/tvBus"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/fredo"
+        android:gravity="center"
+        android:text="Bus"
+        android:textColor="#6DB9EF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvMotor"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBus" />
+
+    <TextView
+        android:id="@+id/tvMotor"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredo"
+        android:gravity="center"
+        android:text="Motor"
+        android:textColor="#6DB9EF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvMobil"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvBus"
+        app:layout_constraintTop_toTopOf="@+id/tvBus" />
+
+    <TextView
+        android:id="@+id/tvMobil"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredo"
+        android:gravity="center"
+        android:text="Mobil"
+        android:textColor="#6DB9EF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvMotor"
+        app:layout_constraintTop_toTopOf="@+id/tvBus" />
+
+    <TextView
+        android:id="@+id/tvJenisBahanBakar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/fredo"
+        android:text="Jenis Bahan Bakar"
+        android:textColor="#6DB9EF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBus" />
+
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgSolar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/solar_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imgBensin"
+        app:layout_constraintTop_toTopOf="@+id/imgBensin"
+        app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/imgBensin"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="8dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bensin_img"
+        app:layout_constraintEnd_toStartOf="@+id/imgSolar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvJenisBahanBakar"
+        app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+
+    <TextView
+        android:id="@+id/tvBensin"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/fredo"
+        android:gravity="center"
+        android:text="Bensin"
+        android:textColor="#6DB9EF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvSolar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBensin" />
+
+    <TextView
+        android:id="@+id/tvSolar"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredo"
+        android:gravity="center"
+        android:text="Solar"
+        android:textColor="#6DB9EF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tvBensin"
+        app:layout_constraintTop_toTopOf="@+id/tvBensin" />
+
+    <TextView
+        android:id="@+id/tvJarak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:fontFamily="@font/fredo"
+        android:text="Jarak Perjalanan"
+        android:textColor="#3081D0"
+        android:textSize="18sp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvBensin" />
+
+    <TextView
+        android:id="@+id/tvIsiJarak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredo"
+        android:text="Isi jarak perjalanan Anda menggunakan Transportasi Umum"
+        android:textColor="#6DB9EF"
+        android:textSize="12sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/tvJarak"
+        app:layout_constraintTop_toBottomOf="@+id/tvJarak" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/fredo"
+        android:hint="Jarak (KM)"
+        android:inputType="number"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvIsiJarak" />
+
+    <TextView
+        android:id="@+id/tvJumlahEmisi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredo"
+        android:text="Jumlah Emisi CO2"
+        android:textColor="#6DB9EF"
+        android:textSize="12sp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/tvIsiJarak"
+        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:enabled="false"
+        android:fontFamily="@font/fredo"
+        android:gravity="center"
+        android:hint="0.30"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="@+id/tvJumlahEmisi"
+        app:layout_constraintTop_toBottomOf="@+id/tvJumlahEmisi" />
+
+    <TextView
+        android:id="@+id/tvKgco2e"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/fredo"
+        android:text="kgCO2e"
+        android:textColor="#6DB9EF"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/editText3"
+        app:layout_constraintStart_toEndOf="@+id/editText3"
+        app:layout_constraintTop_toBottomOf="@+id/tvJumlahEmisi" />
+
+
+    <me.ibrahimsn.lib.SmoothBottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:contentDescription="bottomBar"
+        app:backgroundColor="#6DB9EF"
+        app:iconSize="22dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/bottom_menu"
+        app:textSize="14sp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

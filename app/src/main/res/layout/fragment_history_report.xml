@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HistoryReportFragment">
+
+
+    <ImageView
+        android:id="@+id/img_item_photo"
+        android:layout_width="125dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="18dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="3dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/logo_txt" />
+
+    <ImageView
+        android:id="@+id/imgArrowBack"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/baseline_arrow_back_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_item_photo" />
+
+    <TextView
+        android:id="@+id/tvRiwayat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/fredo"
+        android:text="Riwayat Laporan"
+        android:textColor="#6DB9EF"
+        app:layout_constraintBottom_toBottomOf="@+id/imgArrowBack"
+        app:layout_constraintStart_toEndOf="@+id/imgArrowBack"
+        app:layout_constraintTop_toTopOf="@+id/imgArrowBack" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_historiesReport"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgArrowBack" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
