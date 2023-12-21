@@ -45,16 +45,16 @@ class DashboardFragment : Fragment(){
         // Inflate the layout for this fragment
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
-        val bundle = arguments
-        val aqi = bundle!!.getString("textAqiu")
-        val city = bundle.getString("textCity")
-        Log.d("city", "onCreateView: $city ")
-        val state = bundle.getString("textState")
-
-        // Sets the derived data (type String) in the TextView
-        binding.tvAqi.text = aqi
-        binding.tvCity.text = city
-        binding.tvState.text = state
+//        val bundle = arguments
+//        val aqi = bundle!!.getString("textAqiu")
+//        val city = bundle.getString("textCity")
+//        Log.d("city", "onCreateView: $city ")
+//        val state = bundle.getString("textState")
+//
+//        // Sets the derived data (type String) in the TextView
+//        binding.tvAqi.text = aqi
+//        binding.tvCity.text = city
+//        binding.tvState.text = state
 
         return binding.root
     }

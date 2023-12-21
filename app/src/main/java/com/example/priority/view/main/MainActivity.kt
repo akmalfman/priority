@@ -148,31 +148,31 @@ class MainActivity : AppCompatActivity(), OnSmoothBottomBarItemSelectedListener,
                         "koordinat",
                         "getMylastLocation: ${location.latitude}, ${location.longitude}  "
                     )
-                    viewModel.getAqi(location.latitude,location.longitude,"7265fb06-74ce-469c-801d-3a99fd62093b").observe(this){result->
-                        if (result != null) {
-                            when (result) {
-                                is ResultState.Loading -> {
-//                                    showLoading(true)
-                                }
-                                is ResultState.Success -> {
-                                    Log.d("resultdiactivity", "hasilAqiu:${result.data.data.current?.pollution?.aqius} ")
-                                    val mFragmentManager = supportFragmentManager
-                                    val mFragmentTransaction = mFragmentManager.beginTransaction()
-                                    val mFragment = DashboardFragment()
-                                    val mBundle = Bundle()
-                                    mBundle.putString("textAqiu",result.data.data.current?.pollution?.aqius.toString())
-                                    mBundle.putString("textCity",result.data.data.city.toString())
-                                    mBundle.putString("textState",result.data.data.state.toString())
-                                    mFragment.arguments = mBundle
-                                    mFragmentTransaction.replace(R.id.frame, mFragment).commit()
-
-                                }
-                                is ResultState.Error -> {
-//                                    showLoading(false)
-                                }
-                            }
-                        }
-                    }
+//                    viewModel.getAqi(location.latitude,location.longitude,"7265fb06-74ce-469c-801d-3a99fd62093b").observe(this){result->
+//                        if (result != null) {
+//                            when (result) {
+//                                is ResultState.Loading -> {
+////                                    showLoading(true)
+//                                }
+//                                is ResultState.Success -> {
+//                                    Log.d("resultdiactivity", "hasilAqiu:${result.data.data.current?.pollution?.aqius} ")
+//                                    val mFragmentManager = supportFragmentManager
+//                                    val mFragmentTransaction = mFragmentManager.beginTransaction()
+//                                    val mFragment = DashboardFragment()
+//                                    val mBundle = Bundle()
+//                                    mBundle.putString("textAqiu",result.data.data.current?.pollution?.aqius.toString())
+//                                    mBundle.putString("textCity",result.data.data.city.toString())
+//                                    mBundle.putString("textState",result.data.data.state.toString())
+//                                    mFragment.arguments = mBundle
+//                                    mFragmentTransaction.replace(R.id.frame, mFragment).commit()
+//
+//                                }
+//                                is ResultState.Error -> {
+////                                    showLoading(false)
+//                                }
+//                            }
+//                        }
+//                    }
                 } else {
                     Toast.makeText(
                         this@MainActivity,
