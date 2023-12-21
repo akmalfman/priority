@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity(), OnSmoothBottomBarItemSelectedListener,
 
         binding.bottomBar.setOnItemSelectedListener {
             when(it){
-                0 -> gantiFragment(DashboardFragment())
+                0 -> getMyLastLocation()
                 1 -> gantiFragment(CameraFragment())
                 2 -> gantiFragment(CalcFragment())
                 3 -> gantiFragment(ProfileFragment())
@@ -161,8 +161,10 @@ class MainActivity : AppCompatActivity(), OnSmoothBottomBarItemSelectedListener,
                                     val mFragment = DashboardFragment()
                                     val mBundle = Bundle()
                                     mBundle.putString("textAqiu",result.data.data.current?.pollution?.aqius.toString())
+                                    mBundle.putString("textCity",result.data.data.city.toString())
+                                    mBundle.putString("textState",result.data.data.state.toString())
                                     mFragment.arguments = mBundle
-                                    mFragmentTransaction.add(R.id.frame, mFragment).commit()
+                                    mFragmentTransaction.replace(R.id.frame, mFragment).commit()
 
                                 }
                                 is ResultState.Error -> {

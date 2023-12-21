@@ -46,10 +46,15 @@ class DashboardFragment : Fragment(){
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
         val bundle = arguments
-        val lat = bundle!!.getString("textAqiu")
-        Log.d("latdifrag", "onCreateView: $lat")
+        val aqi = bundle!!.getString("textAqiu")
+        val city = bundle.getString("textCity")
+        Log.d("city", "onCreateView: $city ")
+        val state = bundle.getString("textState")
+
         // Sets the derived data (type String) in the TextView
-        binding.tvTerakhir.text = lat
+        binding.tvAqi.text = aqi
+        binding.tvCity.text = city
+        binding.tvState.text = state
 
         return binding.root
     }
