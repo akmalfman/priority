@@ -56,6 +56,48 @@ Click Dashboard menu, then you will see the AQI Status from IQAir that will refr
 ### 4. Calculator
 This menu, used for predict how much the emission from your vehicle that you will use.
 
+## Contributors ✨
+<table>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/akmalfman">
+                <img src="https://avatars.githubusercontent.com/u/54930896?v=4" width="100px;" alt=""/><br />
+                <sub><b>Akmal Fauzi Salman</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/alflaylah">
+                <img src="https://avatars.githubusercontent.com/u/142734081?v=4" width="100px;" alt=""/><br />
+                <sub><b>Alf Laylah Nifarcahyani</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/arinlia19">
+                <img src="https://avatars.githubusercontent.com/u/142673542?v=4" width="100px;" alt=""/><br />
+                <sub><b>Arina Amaliya</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/Asta86">
+                <img src="https://avatars.githubusercontent.com/u/96363758?v=4" width="100px;" alt=""/><br />
+                <sub><b>Asta Juniar</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/rizaakbr">
+                <img src="https://avatars.githubusercontent.com/u/73057073?v=4" width="100px;" alt=""/><br />
+                <sub><b>Muhammad Riza Jamalul Akbar</b></sub>
+            </a>
+        </td>
+        <td align="center">
+            <a href="https://github.com/salma-an">
+                <img src="https://avatars.githubusercontent.com/u/143592177?v=4" width="100px;" alt=""/><br />
+                <sub><b>Salma Anata</b></sub>
+            </a>
+        </td>
+    </tr>
+</table>
+
 
 ## 
 
