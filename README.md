@@ -34,6 +34,6 @@ akmalfman 05/12/23 (18:21 WIB)
 - add string for bottombar
 - add maven url "jitpack.io"<br>
 
-rizaakbr 21/12/23 (23.40 WIB)
--Machine learning API Complete
+rizaakbr 21/12/23 (23.40 WIB) <br>
+- Machine learning API Complete <br>
 link : https://github.com/alflaylah/Priority-ML-/tree/main
