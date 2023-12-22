@@ -4,20 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".HistoryReportFragment">
+    tools:context=".view.profile.HistoryReportFragment">
 
 
     <ImageView
-        android:id="@+id/img_icon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/img_item_photo"
+        android:layout_width="125dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="18dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="3dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/app_icon"
+        android:src="@drawable/logo_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/app_icon" />
+        tools:src="@drawable/logo_txt" />
 
     <ImageView
         android:id="@+id/imgArrowBack"
@@ -27,7 +31,7 @@
         android:layout_marginTop="16dp"
         android:src="@drawable/baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_icon" />
+        app:layout_constraintTop_toBottomOf="@+id/img_item_photo" />
 
     <TextView
         android:id="@+id/tvRiwayat"

@@ -4,18 +4,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SignUpActivity">
+    tools:context=".view.login.SignUpActivity">
 
-    <TextView
-        android:id="@+id/appName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="@string/app_name"
-        android:textSize="24sp"
+    <ImageView
+        android:id="@+id/img_item_photo"
+        android:layout_width="185dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="18dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="3dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/logo_txt" />
 
     <TextView
         android:id="@+id/textView4"
@@ -26,10 +31,10 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@id/appName" />
+        app:layout_constraintTop_toTopOf="@id/img_item_photo" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inFullname"
+        android:id="@+id/etEmail"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="128dp"
@@ -39,16 +44,22 @@
         app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appName">
+        app:layout_constraintTop_toBottomOf="@id/img_item_photo">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/email_txt" />
+            android:hint="@string/email_txt"
+            android:inputType="text|textEmailAddress"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
+            android:password="false" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inEmail"
+        android:id="@+id/etFullname"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
@@ -58,16 +69,21 @@
         app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/inFullname">
+        app:layout_constraintTop_toBottomOf="@id/etEmail">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/fname_txt" />
+            android:hint="@string/fname_txt"
+            android:inputType="text|textPersonName"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inPassword"
+        android:id="@+id/etPassword"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -75,16 +91,22 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inEmail">
+        app:layout_constraintTop_toBottomOf="@+id/etFullname">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/password_txt" />
+            android:hint="@string/password_txt"
+            android:inputType="textPassword"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
+            android:password="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inConfirmPassword"
+        android:id="@+id/etConfirmPassword"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_marginStart="8dp"
@@ -92,17 +114,23 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inPassword">
+        app:layout_constraintTop_toBottomOf="@+id/etPassword">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/confirm_password_txt" />
+            android:hint="@string/confirm_password_txt"
+            android:inputType="textPassword"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp"
+            android:password="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnSignUp"
         android:layout_width="350dp"
         android:layout_height="50dp"
         android:layout_margin="8dp"
@@ -121,11 +149,10 @@
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="96dp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        >
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <TextView
             android:id="@+id/textView"

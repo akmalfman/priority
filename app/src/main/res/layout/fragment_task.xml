@@ -1,19 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TaskFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".view.profile.FaqFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tugas"
+
+    <ImageView
+        android:id="@+id/img_item_photo"
+        android:layout_width="125dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="18dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="3dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/logo_txt" />
+
+    <ImageView
+        android:id="@+id/imgMaintenance"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:src="@drawable/undraw_security_re_a2rk"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/fredo"
+        android:textColor="@color/btn_color_state"
+        android:text="Fitur ini sedang dalam pengembangan"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgMaintenance" />
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvRiwayat"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="@font/fredo"-->
+<!--        android:text="Tantangan"-->
+<!--        android:textColor="#6DB9EF"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/img_item_photo" />-->
+
+<!--    <Button-->
+<!--        android:id="@+id/btnDetail"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Detail"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/tvRiwayat"-->
+<!--        app:layout_constraintEnd_toEndOf="parent" />-->
+
+<!--    <androidx.recyclerview.widget.RecyclerView-->
+<!--        android:id="@+id/rv_task"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/tvRiwayat" />-->
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

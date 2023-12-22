@@ -4,20 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".CalcFragment">
+    tools:context=".view.calculator.CalcFragment">
 
 
     <ImageView
         android:id="@+id/img_item_photo"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="125dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="18dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="3dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/app_icon"
+        android:src="@drawable/logo_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/app_icon" />
+        tools:src="@drawable/logo_txt" />
 
     <TextView
         android:id="@+id/tvHitungPolusi"
@@ -25,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="24dp"
-        android:fontFamily="@font/fredo"
+        android:fontFamily="@font/asap_bold"
         android:text="Hitung Jumlah Polutan"
         android:textColor="#3081D0"
         android:textSize="18sp"
@@ -37,55 +41,53 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:fontFamily="@font/fredo"
+        android:fontFamily="@font/asap_bold"
         android:text="Jenis Transportasi"
         android:textColor="#6DB9EF"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvHitungPolusi" />
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imgMotor"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/motor_img"
-        app:layout_constraintEnd_toStartOf="@+id/imgMobil"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imgBus"
-        app:layout_constraintTop_toTopOf="@+id/imgBus"
-        app:shapeAppearanceOverlay="@style/RoundedSquare" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imgMobil"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/mobil_img"
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imgMotor"
-        app:layout_constraintTop_toTopOf="@+id/imgBus"
-        app:shapeAppearanceOverlay="@style/RoundedSquare" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imgBus"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="8dp"
-        android:src="@drawable/bus_img"
-        app:layout_constraintEnd_toStartOf="@+id/imgMotor"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvJenisTransportasi"
-        app:shapeAppearanceOverlay="@style/RoundedSquare" />
+        app:layout_constraintTop_toBottomOf="@+id/tvJenisTransportasi">
 
+        <RadioButton
+            android:id="@+id/radioButtonBus"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/bus"
+            android:button="@null"
+            android:layout_marginEnd="45dp"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonMotor"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/motorbike"
+            android:button="@null" />
+
+        <RadioButton
+            android:id="@+id/radioButtonCar"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/car"
+            android:button="@null"
+            android:layout_marginStart="45dp"/>
+
+    </RadioGroup>
 
     <TextView
         android:id="@+id/tvBus"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/fredo"
+        android:fontFamily="@font/asap_bold"
         android:gravity="center"
         android:text="Bus"
         android:textColor="#6DB9EF"
@@ -93,13 +95,13 @@
         app:layout_constraintEnd_toStartOf="@+id/tvMotor"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgBus" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <TextView
         android:id="@+id/tvMotor"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/fredo"
+        android:fontFamily="@font/asap_bold"
         android:gravity="center"
         android:text="Motor"
         android:textColor="#6DB9EF"
@@ -113,7 +115,7 @@
         android:id="@+id/tvMobil"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/fredo"
+        android:fontFamily="@font/asap_bold"
         android:gravity="center"
         android:text="Mobil"
         android:textColor="#6DB9EF"
@@ -128,46 +130,44 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:fontFamily="@font/fredo"
+        android:fontFamily="@font/asap_bold"
         android:text="Jenis Bahan Bakar"
         android:textColor="#6DB9EF"
-        android:textSize="18sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvBus" />
 
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imgSolar"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/solar_img"
+    <RadioGroup
+        android:id="@+id/radioGroup2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/imgBensin"
-        app:layout_constraintTop_toTopOf="@+id/imgBensin"
-        app:shapeAppearanceOverlay="@style/RoundedSquare" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imgBensin"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="8dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/bensin_img"
-        app:layout_constraintEnd_toStartOf="@+id/imgSolar"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvJenisBahanBakar"
-        app:shapeAppearanceOverlay="@style/RoundedSquare" />
+        app:layout_constraintTop_toBottomOf="@+id/tvJenisBahanBakar">
 
+        <RadioButton
+            android:id="@+id/radioButtonFuel"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="80dp"
+            android:background="@drawable/fuel"
+            android:button="@null" />
+
+        <RadioButton
+            android:id="@+id/radioButtonDiesel"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/diesel"
+            android:button="@null" />
+    </RadioGroup>
 
     <TextView
         android:id="@+id/tvBensin"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:fontFamily="@font/fredo"
+        android:fontFamily="@font/asap_bold"
         android:gravity="center"
         android:text="Bensin"
         android:textColor="#6DB9EF"
@@ -175,13 +175,13 @@
         app:layout_constraintEnd_toStartOf="@+id/tvSolar"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgBensin" />
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup2" />
 
     <TextView
         android:id="@+id/tvSolar"
         android:layout_width="80dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/fredo"
+        android:fontFamily="@font/asap_bold"
         android:gravity="center"
         android:text="Solar"
         android:textColor="#6DB9EF"
@@ -196,11 +196,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:fontFamily="@font/fredo"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/asap_bold"
         android:text="Jarak Perjalanan"
         android:textColor="#3081D0"
         android:textSize="18sp"
-        android:layout_marginTop="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvBensin" />
 
@@ -208,16 +208,16 @@
         android:id="@+id/tvIsiJarak"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/fredo"
-        android:text="Isi jarak perjalanan Anda menggunakan Transportasi Umum"
-        android:textColor="#6DB9EF"
-        android:textSize="12sp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/asap_medium"
+        android:text="Isi jarak perjalanan Anda menggunakan Transportasi Umum"
+        android:textColor="@color/black"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/tvJarak"
         app:layout_constraintTop_toBottomOf="@+id/tvJarak" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/edtJarak"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -226,6 +226,7 @@
         android:hint="Jarak (KM)"
         android:inputType="number"
         android:minHeight="48dp"
+        android:enabled="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvIsiJarak" />
 
@@ -233,36 +234,47 @@
         android:id="@+id/tvJumlahEmisi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/fredo"
-        android:text="Jumlah Emisi CO2"
-        android:textColor="#6DB9EF"
-        android:textSize="12sp"
         android:layout_marginTop="8dp"
+        android:fontFamily="@font/asap_medium"
+        android:text="Jumlah Emisi CO"
+        android:textColor="@color/black"
+        android:textSize="12sp"
         app:layout_constraintStart_toStartOf="@+id/tvIsiJarak"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/edtJarak" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/edtJumlah"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:enabled="false"
         android:fontFamily="@font/fredo"
         android:gravity="center"
-        android:hint="0.30"
+        android:hint="0.
+        0"
         android:minHeight="48dp"
+        android:textColor="@color/btn_color_state"
         app:layout_constraintStart_toStartOf="@+id/tvJumlahEmisi"
         app:layout_constraintTop_toBottomOf="@+id/tvJumlahEmisi" />
 
     <TextView
-        android:id="@+id/tvKgco2e"
+        android:id="@+id/tvPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/fredo"
-        android:text="kgCO2e"
-        android:textColor="#6DB9EF"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toBottomOf="@+id/editText3"
-        app:layout_constraintStart_toEndOf="@+id/editText3"
+        android:fontFamily="@font/asap_medium"
+        android:text="%"
+        android:textColor="@color/blue_500"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/edtJumlah"
+        app:layout_constraintStart_toEndOf="@+id/edtJumlah"
+        app:layout_constraintTop_toBottomOf="@+id/tvJumlahEmisi" />
+
+    <Button
+        android:id="@+id/btnHitung"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hitung"
+        app:layout_constraintBottom_toBottomOf="@+id/edtJumlah"
+        app:layout_constraintEnd_toEndOf="@+id/edtJarak"
         app:layout_constraintTop_toBottomOf="@+id/tvJumlahEmisi" />
 
 

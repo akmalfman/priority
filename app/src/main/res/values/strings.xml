@@ -4,6 +4,8 @@
     <string name="menu_leaderboard">Leaderboard</string>
     <string name="menu_store">Store</string>
     <string name="menu_profile">Profile</string>
+    <string name="tantangan_name">Tantangan</string>
+
     <string name="title_activity_history_report">HistoryReportActivity</string>
 
     <string name="first_fragment_label">First Fragment</string>
@@ -28,7 +30,8 @@
     <string name="link_signin_txt_long">Belum punya akun?</string>
     <string name="link_signin_txt">Sign In</string>
     <string name="link_signup_txt">Sign Up</string>
+    <string name="link_signout_txt">Sign Out</string>
 
     <string name="desc_signup_txt">Buat akun</string>
-
+    <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu.</string>
 </resources>
