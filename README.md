@@ -38,8 +38,6 @@ Predict and Challenger app to resolve air pollution stuff, especially in Jakarta
 </ol>
 
 ## LOCAL INSTALLATION
-  Do this for access this project at your computer:
-
 ### 1. Download this app from the link: <br>
 <a href="https://drive.google.com/file/d/1TXAs1TeMgAc_8UVtRJebqpbPR82QhpX4/view?usp=sharing">Download Here</a>
 
