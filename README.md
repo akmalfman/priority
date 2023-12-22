@@ -32,4 +32,8 @@ akmalfman 05/12/23 (18:21 WIB)
 - add menu/bottom_menu.xml
 - add dependencies smoothbar & circleimageview
 - add string for bottombar
-- add maven url "jitpack.io"
+- add maven url "jitpack.io"<br>
+
+rizaakbr 21/12/23 (23.40 WIB)
+-Machine learning API Complete
+link : https://github.com/alflaylah/Priority-ML-/tree/main
