@@ -1,39 +1,62 @@
-Get started to use Git:
+<table align="center" style="border: none">
+ <tr>
+    <td>
+        <p align="center"><a href="https://github.com/kyriten/kyread"><img src="https://github.com/kyriten/priority/blob/main/assets/priority.svg" width="400" alt="priority Logo"></a></p>         </td>
+    <td>
+        <p align="center"><a href="https://kotlinlang.org/docs/getting-started.html" target="_blank"><img src="https://github.com/kyriten/priority/blob/fede1c4c7f5cef758b29415e639ef64abb0e8711/assets/kotlin-svgrepo-com.svg" width="400" alt="Kotlin Logo"></a></p>
+ </tr>
+</table>
 
-1. Download git https://git-scm.com/download/win
 
-2. Konfigurasi GitHub di OS:
-2.1 git config --global user.name "username GitHub"
-2.2 git config --global user.email emailgithub@gmail.com
 
-3. Clone github project ke android studio:
-3.1 Buka Android Studio, buka terminal
-3.2 git clone https://github.com/kyriten/priority.git
+## APP SPECIFICATIONS
 
-4. Cek git branch, apa aja branch yang udh di clone ke lokal:
-4.1 git branch
+Predict and Challenger app to resolve air pollution stuff, especially in Jakarta. So here are the specifications of the application:
+<ol>
+<li>App Name: Priority</li>
+<li>Kotlin Version: 1.9.0</li>
+<li>Android Studio : Girrafe</li>
+<li>Google Services: 4.4.0</li>
+<li>Firebase Auth: 22.3.0</li>
+<li>Firebase Analytics: 21.5.0</li>
+<li>Smooth Bottom Bar Lib: 1.7.9</li>
+<li>Retrofit 2: 2.9.0</li>
+<li>Bottom Bar Lib: <a href="https://github.com/ibrahimsn98/SmoothBottomBar">Smooth Bottom Bar by ibrahimsn98</a></li>
+</ol>
 
-kalo masih branch main, ketik kode ini: <br>
-5. git pull origin ui <br>
-5.1 git branch <br>
-5.2 git checkout ui <br>
+## FEATURES
+<ol>
+<li>User Authentication</li>
+<li>AQI Status for Realtime</li>
+<li>Emission Calculator</li>
+<li>Convenient Use</li>
+</ol>
 
-kalo branch udh pindah ke branch ui, jangan diubah lagi ke main, nanti ngodingnya buat ui disini
+### Next Task
+<ol>
+<li>Tasks Fragment</li>
+</ol>
 
-Upload dan simpan code ke github: <br>
-6. git add . (artinya menambahkan semua perubahan untuk diupload ke repo/stage changes) <br>
-7. git commit -m "tambahin pesannya apa" <br>
-8. git pull origin ui <br>
-9. git push -u origin ui <br>
-10. selesai <br>
+## LOCAL INSTALLATION
+  Do this for access this project at your computer:
 
-akmalfman 05/12/23 (18:21 WIB)
-- add icon dummy
-- add menu/bottom_menu.xml
-- add dependencies smoothbar & circleimageview
-- add string for bottombar
-- add maven url "jitpack.io"<br>
+### 1. Download this app from the link: <br>
+<a href="https://drive.google.com/file/d/1TXAs1TeMgAc_8UVtRJebqpbPR82QhpX4/view?usp=sharing">Download Here</a>
 
-rizaakbr 21/12/23 (23.40 WIB) <br>
-- Machine learning API Complete <br>
-link : https://github.com/alflaylah/Priority-ML-/tree/main
+
+### 2. Auth
+<ol>
+<li>Please sign up before use the app</li>
+<li>Then, sign in to enter the app</li>
+</ol>
+
+### 3. Dashboard
+Click Dashboard menu, then you will see the AQI Status from IQAir that will refreshed in realtime
+
+### 4. Calculator
+This menu, used for predict how much the emission from your vehicle that you will use.
+
+
+## 
+
+<p align="center"> This app created in Dec 22, 2023. Represented for Product Based Capstone Project in Bangkit Academy 2023 H2.</p>
