@@ -9,7 +9,7 @@
 
 
 
-## APP SPECIFICATIONSS
+## APP SPECIFICATIONSSS
 
 Predict and Challenger app to resolve air pollution stuff, especially in Jakarta. So here are the specifications of the application:
 <ol>
