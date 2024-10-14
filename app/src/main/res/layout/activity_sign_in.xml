@@ -11,7 +11,6 @@
         android:layout_width="185dp"
         android:layout_height="48dp"
         android:layout_marginStart="18dp"
-        android:layout_marginTop="232dp"
         android:layout_marginEnd="18dp"
         android:paddingTop="0dp"
         android:paddingBottom="3dp"
@@ -22,18 +21,32 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@drawable/logo_txt" />
 
+    <ImageView
+        android:id="@+id/img_anim"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="24dp"
+        android:paddingTop="0dp"
+        android:paddingBottom="3dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/signin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_item_photo" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etEmail"
         android:layout_width="350dp"
         android:layout_height="56dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="96dp"
+        android:layout_marginTop="6dp"
         android:layout_marginEnd="8dp"
         app:hintAnimationEnabled="true"
         app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_item_photo">
+        app:layout_constraintTop_toBottomOf="@+id/img_anim">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
