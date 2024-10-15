@@ -214,6 +214,7 @@
                 <ImageButton
                     android:layout_width="186dp"
                     android:layout_height="156dp"
+                    android:importantForAccessibility="no"
                     android:src="@drawable/calcdash"
                     app:layout_constraintEnd_toEndOf="parent"
                     tools:ignore="MissingConstraints" />
@@ -253,10 +254,10 @@
                     android:id="@+id/tvState"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
                     android:layout_marginTop="18dp"
                     android:fontFamily="@font/asap_bold"
                     android:text="Bandung"
-                    android:layout_marginStart="4dp"
                     android:textColor="@color/darkBlue"
                     android:textSize="12sp"
                     app:layout_constraintStart_toEndOf="@+id/tvKoma"
@@ -266,19 +267,19 @@
                     android:id="@+id/tvKoma"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
                     android:layout_marginTop="18dp"
                     android:fontFamily="@font/asap_bold"
                     android:text=","
                     android:textColor="@color/btn_color_state"
                     android:textSize="16sp"
-                    android:layout_marginStart="2dp"
                     app:layout_constraintStart_toEndOf="@+id/tvCity"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/tvStatus"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="174dp"
+                    android:layout_height="62dp"
                     android:layout_marginTop="16dp"
                     android:fontFamily="@font/fredo"
                     android:text="Status Udara"
@@ -293,13 +294,16 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_centerInParent="true"
+                    android:layout_marginBottom="2dp"
                     android:indeterminate="false"
-                    android:max="200"
+                    android:max="300"
                     android:progress="99"
                     android:progressDrawable="@drawable/circular_progress_bar"
                     android:rotation="270"
-                    tools:layout_editor_absoluteX="226dp"
-                    tools:layout_editor_absoluteY="48dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTerakhir"
+                    app:layout_constraintStart_toEndOf="@+id/tvStatus"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
@@ -311,9 +315,9 @@
                     android:textColor="@color/white"
                     android:textSize="28sp"
                     app:layout_constraintBottom_toBottomOf="@+id/tvStatus"
-                    app:layout_constraintEnd_toEndOf="@+id/tvTerakhir"
-                    app:layout_constraintStart_toStartOf="@+id/tvTerakhir"
-                    app:layout_constraintTop_toBottomOf="@+id/tvKoma" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvStatus"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTerakhir" />
 
                 <TextView
                     android:id="@+id/tvAqiText"
@@ -323,8 +327,8 @@
                     android:text="AQI US"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tvTerakhir"
-                    app:layout_constraintStart_toStartOf="@+id/tvTerakhir"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvStatus"
                     app:layout_constraintTop_toBottomOf="@+id/tvAqi" />
 
                 <TextView

@@ -11,4 +11,10 @@
     <color name="colorPrimaryDark">#8D8D8D</color>
     <color name="colorAccent">#6DB9EF</color>
     <color name="darkBlue">#394867</color>
+    <color name="yellow">#F4F27E</color>
+    <color name="orange">#DD9E46</color>
+    <color name="red">#DD4646</color>
+    <color name="purple">#DD467D</color>
+    <color name="maroon">#8B322C</color>
+    <color name="green">#0D9276</color>
 </resources>

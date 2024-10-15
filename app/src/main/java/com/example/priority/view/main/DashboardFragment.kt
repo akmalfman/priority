@@ -1,6 +1,7 @@
 package com.example.priority.view.main
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -38,6 +40,7 @@ class DashboardFragment : Fragment(){
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -46,15 +49,18 @@ class DashboardFragment : Fragment(){
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
         val bundle = arguments
-        val aqi = bundle!!.getString("textAqiu")
-        val city = bundle.getString("textCity")
-        Log.d("city", "onCreateView: $city ")
-        val state = bundle.getString("textState")
+        val aqiString = bundle?.getString("textAqiu")
+        val city = bundle?.getString("textCity") ?: ""
+        val state = bundle?.getString("textState") ?: ""
+        val aqi = aqiString?.toIntOrNull() ?: 0
 
-        // Sets the derived data (type String) in the TextView
-        binding.tvAqi.text = aqi
+        binding.tvAqi.text = aqi.toString()
         binding.tvCity.text = city
         binding.tvState.text = state
+
+        updateAQI(aqi)
+
+        return binding.root
 
         return binding.root
     }
@@ -89,5 +95,25 @@ class DashboardFragment : Fragment(){
         } ?: run {
             binding.tvName.text = "Pengguna belum login"
         }
+    }
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun updateAQI(aqi: Int){
+        binding.progressAqi.progress = aqi
+
+        // Change color based on AQI value
+        val color = when {
+            aqi <= 50 -> R.color.green  // Good (0-50)
+            aqi <= 100 -> R.color.yellow // Moderate (51-100)
+            aqi <= 150 -> R.color.orange // Unhealthy for Sensitive Groups (101-150)
+            aqi <= 200 -> R.color.red    // Unhealthy (151-200)
+            aqi <= 300 -> R.color.purple // Very Unhealthy (201-300)
+            else -> R.color.maroon        // Hazardous (301+)
+        }
+
+        // Change ProgressBar color
+        binding.progressAqi.progressDrawable.setColorFilter(
+            resources.getColor(color, null),
+            android.graphics.PorterDuff.Mode.SRC_IN
+        )
     }
 }

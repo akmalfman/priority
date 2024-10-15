@@ -1,20 +1,27 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Background lingkaran (warna abu-abu sebagai track) -->
     <item android:id="@android:id/background">
-        <shape android:shape="ring"
+        <shape
+            android:shape="ring"
             android:thicknessRatio="16"
             android:useLevel="false">
-            <solid android:color="@android:color/darker_gray" />
+            <solid android:color="#DDDDDD" /> <!-- Warna track lingkaran -->
         </shape>
     </item>
+
+    <!-- Progress lingkaran (warna akan dinamis diubah melalui kode) -->
     <item android:id="@android:id/progress">
         <rotate
-            android:fromDegrees="-90"
-            android:toDegrees="0">
-            <shape android:shape="ring"
+            android:fromDegrees="300"
+            android:toDegrees="300">
+            <shape
+                android:shape="ring"
                 android:thicknessRatio="16"
                 android:useLevel="true">
-                <solid android:color="@android:color/holo_blue_light" />
+                <solid android:color="@color/yellow" /> <!-- Warna default progress (kuning) -->
             </shape>
         </rotate>
     </item>
+
 </layer-list>
