@@ -12,11 +12,6 @@ import com.example.priority.R
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [LeaderboardFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LeaderboardFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null

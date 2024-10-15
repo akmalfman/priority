@@ -177,7 +177,7 @@
             android:layout_height="match_parent"
             android:layout_marginLeft="4dp"
             android:text="@string/link_signin_txt"
-            android:textColor="@color/blue_500"
+            android:textColor="@color/colorPrimary"
             android:textSize="12sp" />
     </LinearLayout>
 

@@ -32,7 +32,7 @@
             android:layout_height="120dp"
             android:layout_marginTop="32dp"
             app:cardBackgroundColor="#6DB9EF"
-            app:cardCornerRadius="12dp"
+            app:cardCornerRadius="15dp"
             android:layout_centerInParent="true">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -104,7 +104,7 @@
             android:layout_height="75dp"
             android:layout_marginTop="12dp"
             app:cardBackgroundColor="@color/btn_color_state"
-            app:cardCornerRadius="12dp"
+            app:cardCornerRadius="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cvAwal">
@@ -200,27 +200,23 @@
 
                 <TextView
                     android:id="@+id/tvBukti"
-                    android:layout_width="150dp"
+                    android:layout_width="129dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
+                    android:layout_marginStart="20dp"
                     android:fontFamily="@font/asap_bold"
-                    android:text="Bukti Kamu Sehat"
+                    android:text="@string/calc_dash"
                     android:textColor="#6DB9EF"
-                    android:textSize="24sp"
+                    android:textSize="26sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-
-                <ImageView
-                    android:id="@+id/img_bukti"
-                    android:layout_width="200dp"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/dummy_bukti"
-                    app:layout_constraintBottom_toBottomOf="parent"
+                <ImageButton
+                    android:layout_width="186dp"
+                    android:layout_height="156dp"
+                    android:src="@drawable/calcdash"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    tools:ignore="MissingConstraints" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -230,8 +226,8 @@
             android:layout_width="360dp"
             android:layout_height="150dp"
             android:layout_marginTop="16dp"
-            app:cardBackgroundColor="#FFFFFF"
-            app:cardCornerRadius="12dp"
+            app:cardBackgroundColor="#6DB9EF"
+            app:cardCornerRadius="15dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/cvBukti">
@@ -248,7 +244,7 @@
                     android:layout_marginTop="18dp"
                     android:fontFamily="@font/asap_bold"
                     android:text="Katapang"
-                    android:textColor="@color/btn_color_state"
+                    android:textColor="@color/darkBlue"
                     android:textSize="12sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -261,7 +257,7 @@
                     android:fontFamily="@font/asap_bold"
                     android:text="Bandung"
                     android:layout_marginStart="4dp"
-                    android:textColor="@color/btn_color_state"
+                    android:textColor="@color/darkBlue"
                     android:textSize="12sp"
                     app:layout_constraintStart_toEndOf="@+id/tvKoma"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -283,12 +279,28 @@
                     android:id="@+id/tvStatus"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/asap_bold"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/fredo"
                     android:text="Status Udara"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="28sp"
                     app:layout_constraintStart_toStartOf="@+id/tvCity"
                     app:layout_constraintTop_toBottomOf="@+id/tvCity" />
+
+                <ProgressBar
+                    android:id="@+id/progress_aqi"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerInParent="true"
+                    android:indeterminate="false"
+                    android:max="200"
+                    android:progress="99"
+                    android:progressDrawable="@drawable/circular_progress_bar"
+                    android:rotation="270"
+                    tools:layout_editor_absoluteX="226dp"
+                    tools:layout_editor_absoluteY="48dp"
+                    tools:ignore="MissingConstraints" />
 
                 <TextView
                     android:id="@+id/tvAqi"
@@ -296,7 +308,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/asap_bold"
                     android:text="99"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="28sp"
                     app:layout_constraintBottom_toBottomOf="@+id/tvStatus"
                     app:layout_constraintEnd_toEndOf="@+id/tvTerakhir"
@@ -309,7 +321,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/asap_bold"
                     android:text="AQI US"
-                    android:textColor="@color/black"
+                    android:textColor="@color/white"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="@+id/tvTerakhir"
                     app:layout_constraintStart_toStartOf="@+id/tvTerakhir"

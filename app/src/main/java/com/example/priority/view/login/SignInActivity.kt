@@ -19,12 +19,22 @@ class SignInActivity : AppCompatActivity() {
         binding = ActivitySignInBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        checkIfUserIsLoggedIn()
         initListeners()
+    }
+
+    private fun checkIfUserIsLoggedIn() {
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            // Jika pengguna sudah login, langsung menuju MainActivity
+            startMainActivity()
+        }
     }
 
     private fun initListeners() {
         binding.btnSignIn.setOnClickListener { signInUser() }
         binding.txtSignup.setOnClickListener { startSignUpActivity() }
+
     }
 
     private fun signInUser() {
