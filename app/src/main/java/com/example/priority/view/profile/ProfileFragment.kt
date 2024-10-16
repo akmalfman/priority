@@ -122,7 +122,7 @@ class ProfileFragment : Fragment() {
         with(binding) {
             tvRiwayatLaporan.setOnClickListener { replaceFragment(HistoryReportFragment()) }
             imgNextHistory.setOnClickListener { replaceFragment(HistoryFragment()) }
-            EditProfile.setOnClickListener { replaceFragment(HistoryFragment()) }
+            EditProfile.setOnClickListener { replaceFragment(EditProfileFragment()) }
 //            imgNextEditProfile.setOnClickListener { replaceFragment(EditProfileFragment()) }
             TentangAplikasi.setOnClickListener { replaceFragment(AboutFragment()) }
 //            imgNextTentangAplikasi.setOnClickListener { replaceFragment(AboutFragment()) }
