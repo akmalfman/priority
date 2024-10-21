@@ -120,7 +120,7 @@ class ProfileFragment : Fragment() {
 
     private fun setClickListeners() {
         with(binding) {
-            tvRiwayatLaporan.setOnClickListener { replaceFragment(HistoryReportFragment()) }
+            tvPartisipasi.setOnClickListener { replaceFragment(HistoryReportFragment()) }
             imgNextHistory.setOnClickListener { replaceFragment(HistoryFragment()) }
             EditProfile.setOnClickListener { replaceFragment(EditProfileFragment()) }
 //            imgNextEditProfile.setOnClickListener { replaceFragment(EditProfileFragment()) }
