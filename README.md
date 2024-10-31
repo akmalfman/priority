@@ -1,7 +1,8 @@
 <table align="center" style="border: none">
  <tr>
     <td>
-        <p align="center"><a href="https://github.com/kyriten/kyread"><img src="https://github.com/kyriten/priority/blob/main/assets/priority.svg" width="400" alt="priority Logo"></a></p>         </td>
+        <p align="center"><a href="https://github.com/kyriten/kyread">
+        <img src="https://github.com/kyriten/priority/blob/main/assets/priority.svg" width="400" alt="priority Logo"></a></p>         </td>
     <td>
         <p align="center"><a href="https://kotlinlang.org/docs/getting-started.html" target="_blank"><img src="https://github.com/kyriten/priority/blob/fede1c4c7f5cef758b29415e639ef64abb0e8711/assets/kotlin-svgrepo-com.svg" width="400" alt="Kotlin Logo"></a></p>
  </tr>

@@ -61,3 +61,4 @@ data class Pollution(
 	@field:SerializedName("aqicn")
 	val aqicn: Int? = null
 )
+

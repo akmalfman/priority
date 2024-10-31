@@ -34,4 +34,9 @@
 
     <string name="desc_signup_txt">Buat akun</string>
     <string name="empty_image_warning">Silakan masukkan berkas gambar terlebih dahulu.</string>
+
+    <string name="calc_dash">Hitung Emisi Kamu Hari Ini!</string>
+    
+    <string name="title_boadr">Leaderboards</string>
+    <string name="subtitle_board">Peringkat Perhitungan Pengurangan Emisi Karbon</string>
 </resources>

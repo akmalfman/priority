@@ -1,373 +1,375 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.profile.ProfileFragment">
 
-
-    <ImageView
-        android:id="@+id/img_item_photo"
-        android:layout_width="125dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="18dp"
-        android:paddingTop="0dp"
-        android:paddingBottom="3dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/logo_txt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/logo_txt" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvAwal"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:cardBackgroundColor="#6DB9EF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_item_photo">
+        android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ImageView
+            android:id="@+id/img_item_photo"
+            android:layout_width="125dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="18dp"
+            android:paddingTop="0dp"
+            android:paddingBottom="3dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/logo_txt"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/logo_txt" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvAwal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardBackgroundColor="#6DB9EF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_item_photo">
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/circleImageView2"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_gravity="center"
-                android:scaleType="centerCrop"
-                android:src="@drawable/dummy_pp"
-                app:civ_border_color="@color/white"
-                app:civ_border_width="3dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/fredo"
-                android:text="John Doe"
-                android:textColor="@color/white"
-                android:textSize="24sp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/circleImageView2" />
-
-            <TextView
-                android:id="@+id/tvPoint"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/asap_bold"
-                android:text="POIN"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvName" />
-
-            <TextView
-                android:id="@+id/tvTier"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/asap_bold"
-                android:paddingBottom="8dp"
-                android:text="TIER | RANK"
-                android:textColor="@color/white"
-                android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvPoint" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/tvRiwayatLaporan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:fontFamily="@font/asap_medium"
-        android:text="Riwayat Laporan"
-        android:textColor="#3081D0"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="@+id/cvPencapaian"
-        app:layout_constraintTop_toBottomOf="@+id/cvAwal" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvPencapaian"
-        android:layout_width="350dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="18dp"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvRiwayatLaporan">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/tvPencapaian"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/asap_bold"
-                android:text="Pencapaian Saya"
-                android:textColor="@color/btn_color_state"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/tvPencapaianValue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/fredo"
-                android:text="1"
-                android:textColor="@color/btn_color_state"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/imgNextHistory"
-                app:layout_constraintEnd_toStartOf="@+id/imgNextHistory"
-                app:layout_constraintTop_toTopOf="@+id/imgNextHistory" />
-
-            <ImageView
-                android:id="@+id/imgNextHistory"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:scaleType="centerCrop"
-                android:layout_marginEnd="12dp"
-                android:src="@drawable/baseline_navigate_next_24"
-                app:layout_constraintBottom_toBottomOf="@+id/tvPencapaian"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/tvPencapaian" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                android:backgroundTint="#6DB9EF"
-                app:cardCornerRadius="50dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="12dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvPencapaian">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/tvTierPencapaian"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/fredo"
-                        android:text="Tier"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        android:layout_marginTop="8dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/tvTierValue"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/fredo"
-                        android:text="2.1"
-                        android:textColor="@color/white"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvTierPencapaian" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </androidx.cardview.widget.CardView>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvOption"
-        android:layout_width="350dp"
-        android:layout_height="196dp"
-        android:layout_marginTop="8dp"
-        app:cardCornerRadius="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cvPencapaian">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/cvProfile"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:id="@+id/EditProfile"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="match_parent">
 
-                <TextView
-                    android:id="@+id/tvEditProfile"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="18dp"
-                    android:fontFamily="@font/asap_medium"
-                    android:text="Edit Profile"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:typeface="monospace"
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/circleImageView2"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_gravity="center"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/dummy_pp"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="3dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-
-                <ImageView
-                    android:id="@+id/imgNextEditProfile"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="196dp"
-                    android:layout_marginTop="14dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/baseline_navigate_next_24"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
-            </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/TentangAplikasi"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/EditProfile">
-
                 <TextView
-                    android:id="@+id/tvTentangAplikasi"
+                    android:id="@+id/tvName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
+                    android:fontFamily="@font/fredo"
+                    android:text="John Doe"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
                     android:layout_marginTop="8dp"
-                    android:fontFamily="@font/asap_medium"
-                    android:text="Tentang Aplikasi"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    android:typeface="sans"
-                    app:layout_constraintStart_toStartOf="parent" />
-
-                <ImageView
-                    android:id="@+id/imgNextTentangAplikasi"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginStart="150dp"
-                    android:layout_marginTop="4dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/baseline_navigate_next_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/tvTentangAplikasi"
-                    app:layout_constraintEnd_toEndOf="parent" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/FAQ"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/TentangAplikasi">
-
-                <TextView
-                    android:id="@+id/tvFaq"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/asap_medium"
-                    android:text="FAQ"
-                    android:textColor="@color/black"
-                    android:textSize="18sp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTentangAplikasi" />
-
-                <ImageView
-                    android:id="@+id/imgNextFaq"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginStart="248dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/baseline_navigate_next_24"
-                    app:layout_constraintBottom_toBottomOf="@+id/tvFaq"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/tvFaq" />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/circleImageView2" />
 
-            </LinearLayout>
+                <TextView
+                    android:id="@+id/tvPoint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/asap_bold"
+                    android:text="POIN"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
-            <LinearLayout
-                android:id="@+id/Bantuan"
+                <TextView
+                    android:id="@+id/tvTier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/asap_bold"
+                    android:paddingBottom="8dp"
+                    android:text="TIER | RANK"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPoint" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/tvRiwayatPartisipasi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:fontFamily="@font/asap_medium"
+            android:text="Riwayat Partisipasi"
+            android:textColor="#3081D0"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/cvPartisipasi"
+            app:layout_constraintTop_toBottomOf="@+id/cvAwal" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvPartisipasi"
+            android:layout_width="350dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="18dp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvRiwayatPartisipasi">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintTop_toBottomOf="@id/FAQ">
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/tvPartisipasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/asap_bold"
+                    android:text="Partisipasi Saya"
+                    android:textColor="@color/btn_color_state"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvPartisipasiValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/fredo"
+                    android:text="1"
+                    android:textColor="@color/btn_color_state"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/imgNextPartisipasi"
+                    app:layout_constraintEnd_toStartOf="@+id/imgNextPartisipasi"
+                    app:layout_constraintTop_toTopOf="@+id/imgNextPartisipasi" />
+
+                <ImageView
+                    android:id="@+id/imgNextPartisipasi"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:scaleType="centerCrop"
+                    android:layout_marginEnd="12dp"
+                    android:src="@drawable/baseline_navigate_next_24"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvPartisipasi"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/tvPartisipasi" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:backgroundTint="#6DB9EF"
+                    app:cardCornerRadius="50dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="12dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPartisipasi">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/tvDayPartisipasi"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fredo"
+                            android:text="Day"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:layout_marginTop="8dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/tvTierValue"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/fredo"
+                            android:text="1"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvDayPartisipasi" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvOption"
+            android:layout_width="350dp"
+            android:layout_height="196dp"
+            android:layout_marginTop="8dp"
+            app:cardCornerRadius="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cvPartisipasi">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cvProfile"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/EditProfile"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toTopOf="parent">
 
                     <TextView
-                        android:id="@+id/tvBantuan"
+                        android:id="@+id/tvEditProfile"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="18dp"
+                        android:fontFamily="@font/asap_medium"
+                        android:text="Edit Profile"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:typeface="monospace"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <ImageView
+                        android:id="@+id/imgNextEditProfile"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="196dp"
+                        android:layout_marginTop="14dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/baseline_navigate_next_24"
+                        app:layout_constraintEnd_toEndOf="parent" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/TentangAplikasi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/EditProfile">
+
+                    <TextView
+                        android:id="@+id/tvTentangAplikasi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/asap_medium"
-                        android:text="Bantuan"
+                        android:text="Tentang Aplikasi"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:typeface="sans"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imgNextTentangAplikasi"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="150dp"
+                        android:layout_marginTop="4dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/baseline_navigate_next_24"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvTentangAplikasi"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/FAQ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/TentangAplikasi">
+
+                    <TextView
+                        android:id="@+id/tvFaq"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="8dp"
+                        android:fontFamily="@font/asap_medium"
+                        android:text="FAQ"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/tvFaq" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvTentangAplikasi" />
 
                     <ImageView
-                        android:id="@+id/imgNextBantuan"
+                        android:id="@+id/imgNextFaq"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
-                        android:layout_marginStart="215dp"
                         android:layout_marginTop="5dp"
+                        android:layout_marginStart="248dp"
                         android:scaleType="centerCrop"
                         android:src="@drawable/baseline_navigate_next_24"
-                        app:layout_constraintBottom_toBottomOf="@+id/tvBantuan"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvFaq"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/tvBantuan"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintTop_toTopOf="@+id/tvFaq" />
 
-            </LinearLayout>
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/btnSignOut"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/asap_medium"
-                android:text="@string/link_signout_txt"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/Bantuan" />
+                <LinearLayout
+                    android:id="@+id/Bantuan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintTop_toBottomOf="@id/FAQ">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
+                        <TextView
+                            android:id="@+id/tvBantuan"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/asap_medium"
+                            android:text="Bantuan"
+                            android:textColor="@color/black"
+                            android:textSize="18sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tvFaq" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                        <ImageView
+                            android:id="@+id/imgNextBantuan"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginStart="215dp"
+                            android:layout_marginTop="5dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/baseline_navigate_next_24"
+                            app:layout_constraintBottom_toBottomOf="@+id/tvBantuan"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/tvBantuan"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/btnSignOut"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/asap_medium"
+                    android:text="@string/link_signout_txt"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/Bantuan" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
