@@ -24,7 +24,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBe_WU7Z6gmndoKh7ZqGBycUgv0AD62XwU"/>
         <activity
-            android:name=".view.main.MainActivity"
+            android:name=".view.main.SplashScreenActivity"
             android:exported="true" />
         <activity
             android:name=".view.login.SignInActivity"
@@ -33,7 +33,7 @@
             android:name=".view.login.SignUpActivity"
             android:exported="false" />
         <activity
-            android:name=".view.main.SplashScreenActivity"
+            android:name=".view.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

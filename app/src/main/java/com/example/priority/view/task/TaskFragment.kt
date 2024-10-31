@@ -26,14 +26,14 @@ class TaskFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        binding.btnDetail.setOnClickListener {
-//            val detailFragment = DetailFragment()
-//
-//            // Ganti fragment
-//            requireActivity().supportFragmentManager.beginTransaction()
-//                .replace(R.id.frame, detailFragment)
-//                .addToBackStack(null)
-//                .commit()
-//        }
+        binding.btnDetail.setOnClickListener {
+            val detailFragment = DetailFragment()
+
+            // Ganti fragment
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.frame, detailFragment)
+                .addToBackStack(null)
+                .commit()
+        }
     }
 }

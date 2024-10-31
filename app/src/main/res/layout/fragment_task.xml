@@ -80,8 +80,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:text="@string/tantangan_name"
+                android:fontFamily="@font/fredo"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                android:textStyle="bold"
                 app:layout_constraintStart_toEndOf="@+id/item_priority_tantangan"
                 app:layout_constraintTop_toTopOf="@+id/item_priority_tantangan" />
 
@@ -90,11 +90,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
+                android:fontFamily="@font/fredo"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/item_tv_title"
                 app:layout_constraintTop_toBottomOf="@+id/item_tv_title"
-                android:text="Deskripsi Pendek" />
+                android:text="Selamat Mencoba" />
 
             <Button
                 android:id="@+id/btn_detail"
@@ -102,6 +103,7 @@
                 android:layout_height="38dp"
                 android:layout_marginEnd="24dp"
                 android:text="Detail"
+                android:fontFamily="@font/fredo"
                 android:backgroundTint="@color/blue_ligth"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
