@@ -11,6 +11,7 @@ import android.widget.Toast
 import com.example.priority.R
 import com.example.priority.databinding.FragmentProfileBinding
 import com.example.priority.utils.OnSmoothBottomBarItemSelectedListener
+import com.example.priority.view.leaderboard.LeaderboardFragment
 import com.example.priority.view.login.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 
@@ -120,8 +121,8 @@ class ProfileFragment : Fragment() {
 
     private fun setClickListeners() {
         with(binding) {
-            tvPartisipasi.setOnClickListener { replaceFragment(HistoryReportFragment()) }
-            imgNextHistory.setOnClickListener { replaceFragment(HistoryFragment()) }
+            tvPartisipasi.setOnClickListener { replaceFragment(LeaderboardFragment()) }
+            imgNextPartisipasi.setOnClickListener { replaceFragment(LeaderboardFragment()) }
             EditProfile.setOnClickListener { replaceFragment(EditProfileFragment()) }
 //            imgNextEditProfile.setOnClickListener { replaceFragment(EditProfileFragment()) }
             TentangAplikasi.setOnClickListener { replaceFragment(AboutFragment()) }

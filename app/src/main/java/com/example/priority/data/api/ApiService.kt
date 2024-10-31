@@ -1,8 +1,11 @@
 package com.example.priority.data.api
 
+import User
 import com.example.priority.data.response.EmisiResponse
 import com.example.priority.data.response.FileUploadResponse
-import okhttp3.*
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import retrofit2.Call
 import retrofit2.http.*
 
 interface ApiService {
@@ -18,4 +21,7 @@ interface ApiService {
         @Query("model_name") model_name: String,
         @Query("bbm") bbm: String
     ): EmisiResponse
+
+    @GET("leaderboard")
+    fun getLeaderboard(): Call<List<User>>
 }

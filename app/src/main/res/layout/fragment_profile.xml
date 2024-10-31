@@ -146,12 +146,12 @@
                     android:text="1"
                     android:textColor="@color/btn_color_state"
                     android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imgNextHistory"
-                    app:layout_constraintEnd_toStartOf="@+id/imgNextHistory"
-                    app:layout_constraintTop_toTopOf="@+id/imgNextHistory" />
+                    app:layout_constraintBottom_toBottomOf="@+id/imgNextPartisipasi"
+                    app:layout_constraintEnd_toStartOf="@+id/imgNextPartisipasi"
+                    app:layout_constraintTop_toTopOf="@+id/imgNextPartisipasi" />
 
                 <ImageView
-                    android:id="@+id/imgNextHistory"
+                    android:id="@+id/imgNextPartisipasi"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:scaleType="centerCrop"
