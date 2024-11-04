@@ -105,6 +105,11 @@ class SignUpActivity : AppCompatActivity() {
             return false
         }
 
+        if (password.length < 8) {
+            Toast.makeText(this, "Password minimal 8 karakter.", Toast.LENGTH_LONG).show()
+            return false
+        }
+
         if (password.length > 16) {
             Toast.makeText(this, "Password maksimal 16 karakter.", Toast.LENGTH_LONG).show()
             return false

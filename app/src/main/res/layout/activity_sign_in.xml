@@ -23,8 +23,8 @@
 
     <ImageView
         android:id="@+id/img_anim"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="215dp"
+        android:layout_height="185dp"
         android:layout_marginTop="24dp"
         android:paddingTop="0dp"
         android:paddingBottom="3dp"
