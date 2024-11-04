@@ -12,20 +12,15 @@ import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
-import androidx.core.view.MenuItemCompat
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import com.example.priority.databinding.ActivityMainBinding
-import com.example.priority.view.calculator.CalcFragment
-import com.example.priority.view.CameraFragment
 import com.example.priority.utils.OnSmoothBottomBarItemSelectedListener
 import com.example.priority.view.profile.ProfileFragment
 import com.example.priority.R
 import com.example.priority.data.ResultState
+import com.example.priority.view.calculator.CalculatorFragment
 import com.example.priority.view.task.TaskFragment
 import com.google.android.gms.common.api.ResolvableApiException
-import com.google.android.gms.common.api.internal.LifecycleActivity
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -51,7 +46,7 @@ class MainActivity : AppCompatActivity(), OnSmoothBottomBarItemSelectedListener,
             when(it){
                 0 -> getMyLastLocation()
                 1 -> gantiFragment(TaskFragment())
-                2 -> gantiFragment(CalcFragment())
+                2 -> gantiFragment(CalculatorFragment())
                 3 -> gantiFragment(ProfileFragment())
             }
         }
