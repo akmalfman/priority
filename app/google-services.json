@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "789319122216",
-    "project_id": "priority-72bf5",
-    "storage_bucket": "priority-72bf5.appspot.com"
+    "project_number": "978278403790",
+    "project_id": "priority-2e229",
+    "storage_bucket": "priority-2e229.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:789319122216:android:9bad6059675cc3dc7a241d",
+        "mobilesdk_app_id": "1:978278403790:android:3238e407e10c96e95e8a9f",
         "android_client_info": {
           "package_name": "com.example.priority"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "789319122216-k189uf7c5hihhajtrrem0brgeq27jut0.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDCmK9TUkc12RNRoX-0komm-DUziPuTLCk"
+          "current_key": "AIzaSyB6sW4_BkYrC6ZeAVRF7aVr41idVuxbRuA"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "789319122216-k189uf7c5hihhajtrrem0brgeq27jut0.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

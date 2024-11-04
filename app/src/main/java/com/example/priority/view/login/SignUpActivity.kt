@@ -6,9 +6,11 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.priority.databinding.ActivitySignUpBinding
+import com.example.priority.view.main.DashboardFragment
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class SignUpActivity : AppCompatActivity() {
@@ -41,8 +43,14 @@ class SignUpActivity : AppCompatActivity() {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(this, "Berhasil membuat akun", Toast.LENGTH_SHORT).show()
-                        startSignInActivity()
+                        val user = auth.currentUser
+                        user?.let {
+                            // Simpan data tambahan di Realtime Database
+                            saveUserDataToDatabase(it.uid, fullname, email)
+                        }
+
+//                        Toast.makeText(this, "Berhasil membuat akun", Toast.LENGTH_SHORT).show()
+//                        startSignInActivity()
                     } else {
 //                        Log.e("SignUpActivity", "Gagal membuat akun: ${task.exception}")
 //                        Toast.makeText(this, "Gagal membuat akun", Toast.LENGTH_SHORT).show()
@@ -115,12 +123,31 @@ class SignUpActivity : AppCompatActivity() {
         return true
     }
 
+    private fun saveUserDataToDatabase(uid: String, fullname: String, email: String) {
+        // Set URL khusus untuk database ini
+        val database = Firebase.database("https://priority-2e229-default-rtdb.asia-southeast1.firebasedatabase.app/").reference
+        val userMap = mapOf(
+            "fullname" to fullname,
+            "email" to email
+        )
+
+        database.child("users").child(uid).setValue(userMap)
+            .addOnSuccessListener {
+                Toast.makeText(this, "Akun berhasil dibuat dan disimpan", Toast.LENGTH_SHORT).show()
+                startSignInActivity()
+            }
+            .addOnFailureListener { e ->
+                Log.e("SignUpActivity", "Gagal menyimpan data pengguna: ${e.message}")
+                Toast.makeText(this, "Gagal menyimpan data pengguna", Toast.LENGTH_SHORT).show()
+            }
+    }
+
     private fun startSignInActivity() {
         startActivity(Intent(this, SignInActivity::class.java))
     }
 
-    private fun startMainActivity() {
-        startActivity(Intent(this, SignInActivity::class.java))
+    private fun startDashboardFragment() {
+        startActivity(Intent(this,DashboardFragment::class.java))
         finish()
     }
 }
