@@ -4,6 +4,7 @@ plugins {
     // Add the Google services Gradle plugin
     id("com.google.gms.google-services")
     kotlin("kapt")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -90,4 +91,7 @@ dependencies {
     implementation ("androidx.room:room-runtime:$room_version")
     kapt ("androidx.room:room-compiler:$room_version")
     implementation ("androidx.room:room-ktx:$room_version")
+
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.google.android.gms:play-services-location:21.2.0")
 }
