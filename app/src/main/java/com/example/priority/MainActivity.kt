@@ -5,6 +5,7 @@ import android.os.Bundle
 import com.example.priority.databinding.ActivityMainBinding
 import androidx.fragment.app.Fragment
 import com.example.priority.utils.OnSmoothBottomBarItemSelectedListener
+import com.example.priority.view.calculator.CalculatorFragment
 import com.example.priority.view.main.DashboardFragment
 import com.example.priority.view.profile.ProfileFragment
 import com.example.priority.view.task.TaskFragment
@@ -23,7 +24,7 @@ class MainActivity : AppCompatActivity(), OnSmoothBottomBarItemSelectedListener 
             when(it){
                 0 -> gantiFragment(DashboardFragment())
                 1 -> gantiFragment(TaskFragment())
-                2 -> gantiFragment(CalcFragment())
+                2 -> gantiFragment(CalculatorFragment())
                 3 -> gantiFragment(ProfileFragment())
             }
         }
