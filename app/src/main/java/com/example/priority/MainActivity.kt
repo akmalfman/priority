@@ -3,15 +3,11 @@ package com.example.priority
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.priority.databinding.ActivityMainBinding
-import androidx.core.view.MenuItemCompat
-import androidx.core.view.get
 import androidx.fragment.app.Fragment
 import com.example.priority.utils.OnSmoothBottomBarItemSelectedListener
-import com.example.priority.view.calculator.CalcFragment
 import com.example.priority.view.main.DashboardFragment
 import com.example.priority.view.profile.ProfileFragment
 import com.example.priority.view.task.TaskFragment
-import me.ibrahimsn.lib.SmoothBottomBar
 
 class MainActivity : AppCompatActivity(), OnSmoothBottomBarItemSelectedListener {
 
