@@ -22,7 +22,7 @@
         tools:src="@drawable/logo_txt" />
 
     <ImageView
-        android:id="@+id/img_anim"
+        android:id="@+id/imgHallo"
         android:layout_width="215dp"
         android:layout_height="185dp"
         android:layout_marginTop="24dp"
@@ -46,7 +46,7 @@
         app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img_anim">
+        app:layout_constraintTop_toBottomOf="@+id/imgHallo">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -69,9 +69,11 @@
         android:layout_marginEnd="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEmail">
+        app:layout_constraintTop_toBottomOf="@+id/etEmail"
+        app:endIconMode="password_toggle">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tvPassText"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:hint="@string/password_txt"
@@ -81,6 +83,7 @@
             android:paddingEnd="16dp"
             android:paddingBottom="8dp"
             android:password="true" />
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -99,16 +102,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/etPassword"
+        app:layout_constraintVertical_bias="0.8" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="148dp"
+        android:layout_width="411dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="236dp"
         android:gravity="center"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp">
 
         <TextView
             android:id="@+id/textView"
@@ -126,5 +132,24 @@
             android:textColor="@color/colorPrimary"
             android:textSize="12sp" />
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvUsingMethod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="or login using method"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/signInButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvUsingMethod" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
