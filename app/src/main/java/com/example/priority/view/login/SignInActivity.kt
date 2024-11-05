@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.priority.databinding.ActivitySignInBinding
 import android.content.Intent
+import android.text.InputType
 import android.util.Log
 import android.widget.Toast
 import com.example.priority.view.main.MainActivity
@@ -21,6 +22,22 @@ class SignInActivity : AppCompatActivity() {
 
         checkIfUserIsLoggedIn()
         initListeners()
+        setupPasswordVisibilityToggle()
+
+    }
+
+    private fun setupPasswordVisibilityToggle() {
+        var isPasswordVisible = false
+
+        binding.etPassword.setEndIconOnClickListener {
+            isPasswordVisible = !isPasswordVisible
+            binding.tvPassText.inputType = if (isPasswordVisible) {
+                InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+            } else {
+                InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+            }
+            binding.tvPassText.setSelection(binding.tvPassText.text?.length ?: 0)
+        }
     }
 
     private fun checkIfUserIsLoggedIn() {

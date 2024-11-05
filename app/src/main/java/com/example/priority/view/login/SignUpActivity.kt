@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.priority.databinding.ActivitySignUpBinding
+import com.example.priority.view.main.DashboardFragment
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.ktx.auth
@@ -104,6 +105,11 @@ class SignUpActivity : AppCompatActivity() {
             return false
         }
 
+        if (password.length < 8) {
+            Toast.makeText(this, "Password minimal 8 karakter.", Toast.LENGTH_LONG).show()
+            return false
+        }
+
         if (password.length > 16) {
             Toast.makeText(this, "Password maksimal 16 karakter.", Toast.LENGTH_LONG).show()
             return false
@@ -145,8 +151,8 @@ class SignUpActivity : AppCompatActivity() {
         startActivity(Intent(this, SignInActivity::class.java))
     }
 
-    private fun startMainActivity() {
-        startActivity(Intent(this, SignInActivity::class.java))
+    private fun startDashboardFragment() {
+        startActivity(Intent(this,DashboardFragment::class.java))
         finish()
     }
 }
