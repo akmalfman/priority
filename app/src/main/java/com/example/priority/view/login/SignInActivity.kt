@@ -7,14 +7,29 @@ import android.content.Intent
 import android.text.InputType
 import android.util.Log
 import android.widget.Toast
+import androidx.constraintlayout.helper.widget.MotionEffect.TAG
+import androidx.credentials.CredentialManager
+import androidx.credentials.CustomCredential
+import androidx.credentials.GetCredentialRequest
+import androidx.credentials.GetCredentialResponse
+import androidx.credentials.exceptions.GetCredentialException
+import androidx.lifecycle.lifecycleScope
 import com.example.priority.view.main.MainActivity
+import com.google.android.libraries.identity.googleid.GetGoogleIdOption
+import com.google.android.libraries.identity.googleid.GoogleIdTokenCredential
+import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import kotlinx.coroutines.launch
 
 class SignInActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySignInBinding
     private val auth by lazy { Firebase.auth }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySignInBinding.inflate(layoutInflater)
@@ -24,6 +39,75 @@ class SignInActivity : AppCompatActivity() {
         initListeners()
         setupPasswordVisibilityToggle()
 
+        binding.signInButton.setOnClickListener {
+            signInGoogle()
+        }
+
+    }
+
+    private fun signInGoogle() {
+        val googleIdOption = GetGoogleIdOption.Builder()
+            .build()
+
+        val credentialManager = CredentialManager.create(this)
+        val request = GetCredentialRequest.Builder()
+            .addCredentialOption(googleIdOption)
+            .build()
+
+        lifecycleScope.launch {
+            try {
+                val result: GetCredentialResponse = credentialManager.getCredential(
+                    //import from androidx.CredentialManager
+                    request = request,
+                    context = this@SignInActivity,
+                )
+                handleSignIn(result)
+            } catch (e: GetCredentialException) { //import from androidx.CredentialManager
+                Log.d("Error", e.message.toString())
+            }
+        }
+    }
+
+    private fun handleSignIn(result: GetCredentialResponse) {
+        when (val credential = result.credential) {
+            is CustomCredential -> {
+                if (credential.type == GoogleIdTokenCredential.TYPE_GOOGLE_ID_TOKEN_CREDENTIAL) {
+                    // Process Login dengan Firebase Auth
+                } else {
+                    // Catch any unrecognized custom credential type here.
+                    Log.e(TAG, "Unexpected type of credential")
+                }
+            }
+            else -> {
+                // Catch any unrecognized credential type here.
+                Log.e(TAG, "Unexpected type of credential")
+            }
+        }
+    }
+
+    private fun firebaseAuthWithGoogle(idToken: String) {
+        val credential: AuthCredential = GoogleAuthProvider.getCredential(idToken, null)
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    Log.d(TAG, "signInWithCredential:success")
+                    val user: FirebaseUser? = auth.currentUser
+                    updateUI(user)
+                } else {
+                    Log.w(TAG, "signInWithCredential:failure", task.exception)
+                    updateUI(null)
+                }
+            }
+    }
+
+    private fun updateUI(user: FirebaseUser?) {
+        if (user != null) {
+            startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+            finish()
+        }
+    }
+    companion object {
+        private const val TAG = "SignInActivity"
     }
 
     private fun setupPasswordVisibilityToggle() {

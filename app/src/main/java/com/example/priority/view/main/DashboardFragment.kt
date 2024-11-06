@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -110,10 +111,23 @@ class DashboardFragment : Fragment(){
             else -> R.color.maroon        // Hazardous (301+)
         }
 
+        //Change status text
+        val statusText = when {
+            aqi <= 50 -> "Baik"
+            aqi <= 100 -> "Sedang"
+            aqi <= 150 -> "Tidak Sehat Bagi Kelompok Sensitif"
+            aqi <= 200 -> "Tidak Sehat"
+            aqi <= 300 -> "Sangat Tidak Sehat"
+            else -> "Bahaya"
+        }
+
         // Change ProgressBar color
         binding.progressAqi.progressDrawable.setColorFilter(
             resources.getColor(color, null),
             android.graphics.PorterDuff.Mode.SRC_IN
         )
+
+        // Set status udara pada TextView
+        binding.tvStatus.text = statusText
     }
 }
