@@ -54,7 +54,9 @@
         app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView4">
+        app:layout_constraintTop_toBottomOf="@id/textView4"
+        app:boxStrokeColor="@color/blue_ligth"
+        app:hintTextColor="@color/blue">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -79,7 +81,9 @@
         app:hintEnabled="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etEmail">
+        app:layout_constraintTop_toBottomOf="@id/etEmail"
+        app:boxStrokeColor="@color/blue_ligth"
+        app:hintTextColor="@color/blue">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -102,9 +106,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etFullname"
-        app:endIconMode="password_toggle">
+        app:endIconMode="password_toggle"
+        app:boxStrokeColor="@color/blue_ligth"
+        app:hintTextColor="@color/blue">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tvPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/password_txt"
@@ -126,9 +133,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPassword"
-        app:endIconMode="password_toggle">
+        app:endIconMode="password_toggle"
+        app:boxStrokeColor="@color/blue_ligth"
+        app:hintTextColor="@color/blue">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/tvConfirmPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/confirm_password_txt"

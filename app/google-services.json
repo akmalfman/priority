@@ -1,8 +1,9 @@
 {
   "project_info": {
     "project_number": "978278403790",
+    "firebase_url": "https://priority-2e229-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "priority-2e229",
-    "storage_bucket": "priority-2e229.appspot.com"
+    "storage_bucket": "priority-2e229.firebasestorage.app"
   },
   "client": [
     {
@@ -12,7 +13,20 @@
           "package_name": "com.example.priority"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "978278403790-o2av9sufddphtqaj3gnmefkq46hdoeh0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.priority",
+            "certificate_hash": "9db0c683ef40819271be84d54d3c73c59ed063f4"
+          }
+        },
+        {
+          "client_id": "978278403790-pc4ib4s034tqdegqv6ud5f662mu13a8s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyB6sW4_BkYrC6ZeAVRF7aVr41idVuxbRuA"
@@ -20,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "978278403790-i0v4o0bmj34aunbpn69rim5dk7fjh1g3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

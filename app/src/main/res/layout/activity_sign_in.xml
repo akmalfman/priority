@@ -10,7 +10,6 @@
         android:id="@+id/img_item_photo"
         android:layout_width="185dp"
         android:layout_height="48dp"
-        android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
         android:paddingTop="0dp"
         android:paddingBottom="3dp"
@@ -72,7 +71,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etEmail"
-        app:endIconMode="password_toggle">
+        app:endIconMode="password_toggle"
+        app:boxStrokeColor="@color/blue_ligth"
+        app:hintTextColor="@color/blue">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tvPassText"
@@ -107,13 +108,14 @@
         android:id="@+id/linearLayout"
         android:layout_width="211dp"
         android:layout_height="15dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signInButton"
+        app:layout_constraintTop_toBottomOf="@+id/btnSignIn"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -137,20 +139,21 @@
         android:id="@+id/tvUsingMethod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="atau Gunakan Metode Lain"
+        android:layout_marginTop="92dp"
+        android:text="===  atau Gunakan Metode Lain  ==="
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/signInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUsingMethod" />
+        app:layout_constraintTop_toBottomOf="@+id/tvUsingMethod"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

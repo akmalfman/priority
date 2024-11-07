@@ -2,7 +2,9 @@ package com.example.priority.view.login
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.InputType
 import android.util.Log
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.priority.databinding.ActivitySignUpBinding
@@ -24,6 +26,36 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initListeners()
+        setupPasswordVisibilityToggle()
+
+    }
+
+    private fun setupPasswordVisibilityToggle() {
+        // Initialize visibility states
+        var isPasswordVisible = false
+        var isConfirmPasswordVisible = false
+
+        // Toggle password visibility
+        binding.etPassword.setEndIconOnClickListener {
+            isPasswordVisible = togglePasswordVisibility(isPasswordVisible, binding.tvPass)
+        }
+
+        // Toggle confirm password visibility
+        binding.etConfirmPassword.setEndIconOnClickListener {
+            isConfirmPasswordVisible = togglePasswordVisibility(isConfirmPasswordVisible, binding.tvConfirmPass)
+        }
+    }
+
+    // Helper function to toggle password visibility
+    private fun togglePasswordVisibility(isVisible: Boolean, editText: EditText): Boolean {
+        val newVisibility = !isVisible
+        editText.inputType = if (newVisibility) {
+            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+        } else {
+            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        }
+        editText.setSelection(editText.text.length) // Set cursor to end
+        return newVisibility
     }
 
     private fun initListeners() {
