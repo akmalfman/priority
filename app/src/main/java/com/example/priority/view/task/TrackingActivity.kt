@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts
@@ -58,6 +59,7 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback {
         mapFragment.getMapAsync(this)
 
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
+        binding.btnNext.visibility = View.GONE // Hide btnNext when starting
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
@@ -73,7 +75,7 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback {
                 startLocationUpdates()
             } else {
                 updateTrackingStatus(false)
-                startLocationUpdates()
+                stopLocationUpdates()
             }
         }
     }
@@ -133,6 +135,7 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.addMarker(
             MarkerOptions()
                 .position(startLocation)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_person_marker))
                 .title(getString(R.string.start_point))
         )
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(startLocation, 17f))
@@ -202,7 +205,7 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback {
                         trackingMarker?.position = lastLatLng
                     }
 
-                    //draw polyline
+                        //draw polyline
                     allLatLng.add(lastLatLng)
                     mMap.addPolyline(
                         PolylineOptions()
@@ -230,13 +233,17 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback {
         isTracking = newStatus
         if (isTracking) {
             binding.btnStart.text = getString(R.string.stop_running)
+            binding.btnNext.visibility = View.GONE // Hide btnNext when starting
             totalDistance = 0.0 // Reset distance
             previousLocation = null // Reset previous location
         } else {
             binding.btnStart.text = getString(R.string.start_running)
-            Toast.makeText(this, "Total distance: ${totalDistance / 1000} km", Toast.LENGTH_LONG).show()
+            binding.btnNext.visibility = View.VISIBLE // Show btnNext when stopping
+            val formattedDistance = String.format("%.3f", totalDistance / 1000) // Format to 3 decimal places
+            Toast.makeText(this, "Total distance: $formattedDistance km", Toast.LENGTH_LONG).show()
         }
     }
+
 
     private fun startLocationUpdates() {
         try {
