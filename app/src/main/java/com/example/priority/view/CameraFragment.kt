@@ -17,6 +17,7 @@ import com.example.priority.databinding.FragmentCameraBinding
 import com.example.priority.utils.getImageUri
 import com.example.priority.utils.reduceFileImage
 import com.example.priority.utils.uriToFile
+import java.text.DecimalFormat
 
 class CameraFragment : Fragment() {
 
@@ -33,15 +34,20 @@ class CameraFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCameraBinding.inflate(inflater, container, false)
+
+//        val distance = arguments?.getDouble("distance") ?: 0.0
+//        val decimalFormat = DecimalFormat("#.###")
+//        val formattedDistance = decimalFormat.format(distance)
+//        binding.uploadButton.text = formattedDistance
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.galleryButton.setOnClickListener { startGallery() }
         binding.cameraButton.setOnClickListener { startCamera() }
-        binding.uploadButton.setOnClickListener { uploadImage() }
+//        binding.uploadButton.setOnClickListener { uploadImage() }
     }
 
     private fun uploadImage() {
@@ -94,21 +100,6 @@ class CameraFragment : Fragment() {
     ) { isSuccess ->
         if (isSuccess) {
             showImage()
-        }
-    }
-
-    private fun startGallery() {
-        launcherGallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly))
-    }
-
-    private val launcherGallery = registerForActivityResult(
-        ActivityResultContracts.PickVisualMedia()
-    ) { uri: Uri? ->
-        if (uri != null) {
-            currentImageUri = uri
-            showImage()
-        } else {
-            Log.d("Photo Picker", "No media selected")
         }
     }
 

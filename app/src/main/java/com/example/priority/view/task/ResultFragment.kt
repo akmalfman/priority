@@ -12,6 +12,7 @@ import androidx.cardview.widget.CardView
 import com.example.priority.R
 import com.example.priority.databinding.FragmentResultBinding
 import com.example.priority.databinding.FragmentTaskBinding
+import com.example.priority.view.CameraFragment
 import java.text.DecimalFormat
 
 class ResultFragment : Fragment() {
@@ -82,6 +83,7 @@ class ResultFragment : Fragment() {
             }
         }
 
+        binding.btnNext.visibility = View.GONE
         // Reset emission result when vehicle changes
 //        binding.edtJumlah.setText("")
 //        calculateEmissions()  // Recalculate emissions immediately
@@ -178,6 +180,20 @@ class ResultFragment : Fragment() {
         val formattedDistance = decimalFormat.format(emissions)
 
         Log.d("polusi", "calculateEmissions: $formattedDistance")
-        binding.edtJumlah.setText(formattedDistance)  // Tampilkan hasil emisi
+        binding.edtJumlah.setText(formattedDistance)
+
+        binding.btnNext.visibility = View.VISIBLE
+        binding.btnNext.setOnClickListener {
+            val bundle = Bundle()
+            bundle.putDouble("distance", emissions)
+
+            val resultFragment = CameraFragment()
+            resultFragment.arguments = bundle
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.frame, resultFragment)
+                .addToBackStack(null)
+                .commit()
+        }
     }
 }

@@ -423,12 +423,23 @@
         android:id="@+id/tvPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/asap_medium"
-        android:text="%"
+        android:fontFamily="@font/fredo"
+        android:text="ton CO2/Tahun"
         android:textColor="@color/colorAccent"
-        android:textSize="24sp"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="@+id/edtJumlah"
         app:layout_constraintStart_toEndOf="@+id/edtJumlah"
         app:layout_constraintTop_toBottomOf="@+id/tvJumlahEmisi" />
 
+
+    <ImageButton
+        android:id="@+id/btnNext"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/blue"
+        android:src="@drawable/baseline_arrow_forward_24"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/edtJumlah"
+        app:layout_constraintEnd_toEndOf="@id/edtJarak"
+        app:layout_constraintTop_toBottomOf="@+id/tvJumlahEmisi" />
 </androidx.constraintlayout.widget.ConstraintLayout>
