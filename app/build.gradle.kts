@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.example.priority"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.priority"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -84,6 +84,9 @@ dependencies {
 
     implementation("com.google.android.gms:play-services-maps:18.1.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")
+    implementation("com.google.android.gms:play-services-auth:20.5.0")
+    implementation("androidx.credentials:credentials-play-services-auth:1.5.0-beta01")
+
 
     implementation ("com.github.bumptech.glide:glide:4.15.1")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.15.1")
@@ -92,4 +95,15 @@ dependencies {
     implementation ("androidx.room:room-runtime:$room_version")
     kapt ("androidx.room:room-compiler:$room_version")
     implementation ("androidx.room:room-ktx:$room_version")
+
+    implementation("androidx.credentials:credentials:1.0.0-beta01")
+
+    implementation("com.google.firebase:firebase-auth-ktx")
+
+    implementation("com.google.firebase:firebase-bom:31.0.2")
+    implementation("com.google.android.gms:play-services-auth:18.4.0")
+    implementation("com.google.firebase:firebase-auth:21.0.5")
+
+
+
 }

@@ -10,7 +10,6 @@
         android:id="@+id/img_item_photo"
         android:layout_width="185dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="18dp"
         android:paddingTop="0dp"
         android:paddingBottom="3dp"
         android:scaleType="centerCrop"
@@ -24,13 +23,11 @@
         android:id="@+id/imgHallo"
         android:layout_width="215dp"
         android:layout_height="185dp"
-        android:layout_marginTop="24dp"
         android:paddingTop="0dp"
         android:paddingBottom="3dp"
         android:scaleType="centerCrop"
         android:src="@drawable/signin"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.464"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_item_photo" />
 

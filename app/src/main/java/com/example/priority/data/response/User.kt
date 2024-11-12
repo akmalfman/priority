@@ -5,7 +5,7 @@ data class User(
     val name: String? = null,
 
     @field:SerializedName("score")
-    val score: Double? = null,
+    val score: String? = null,
 
     @field:SerializedName("profileImageUrl")
     val profileImageUrl: String? = null
