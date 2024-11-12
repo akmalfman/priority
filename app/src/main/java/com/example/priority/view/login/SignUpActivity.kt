@@ -7,9 +7,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.priority.databinding.ActivitySignUpBinding
 import com.example.priority.view.main.DashboardFragment
+import com.example.priority.view.main.MainActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.userProfileChangeRequest
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
@@ -23,7 +26,14 @@ class SignUpActivity : AppCompatActivity() {
         binding = ActivitySignUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initListeners()
+        val auth = FirebaseAuth.getInstance()
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            startActivity(Intent(this, MainActivity::class.java))
+            finish() // Tutup halaman login
+        } else {
+            initListeners()
+        }
     }
 
     private fun initListeners() {
@@ -33,9 +43,7 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun signUpUser() {
         val fullname = binding.etFullname.editText?.text.toString().trim()
-        Log.d("SignUpActivity", "Email before trim: ${binding.etEmail.editText?.text}")
         val email = binding.etEmail.editText?.text.toString().trim()
-        Log.d("SignUpActivity", "Email after trim: $email")
         val password = binding.etPassword.editText?.text.toString().trim()
         val confirmPassword = binding.etConfirmPassword.editText?.text.toString().trim()
 
@@ -45,31 +53,34 @@ class SignUpActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         val user = auth.currentUser
                         user?.let {
+                            // Update displayName in Firebase Auth
+                            val profileUpdates = userProfileChangeRequest {
+                                displayName = fullname
+                            }
+                            it.updateProfile(profileUpdates)
+                                .addOnCompleteListener { updateTask ->
+                                    if (updateTask.isSuccessful) {
+                                        Log.d("SignUpActivity", "User profile updated with displayName")
+                                    } else {
+                                        Log.e("SignUpActivity", "Failed to update displayName: ${updateTask.exception?.message}")
+                                    }
+                                }
+
                             // Simpan data tambahan di Realtime Database
                             saveUserDataToDatabase(it.uid, fullname, email)
                         }
-
-//                        Toast.makeText(this, "Berhasil membuat akun", Toast.LENGTH_SHORT).show()
-//                        startSignInActivity()
                     } else {
-//                        Log.e("SignUpActivity", "Gagal membuat akun: ${task.exception}")
-//                        Toast.makeText(this, "Gagal membuat akun", Toast.LENGTH_SHORT).show()
                         val exception = task.exception
                         when (exception) {
                             is FirebaseAuthInvalidCredentialsException -> {
-                                // Handle the case where the email address is badly formatted
                                 Log.e("SignUpActivity", "Gagal membuat akun: ${exception.message}")
                                 Toast.makeText(this, "Email harus valid", Toast.LENGTH_SHORT).show()
                             }
-
                             is FirebaseAuthUserCollisionException -> {
-                                // Handle the case where the email address already exists
                                 Log.e("SignUpActivity", "Akun sudah terdaftar")
                                 Toast.makeText(this, "Akun sudah terdaftar", Toast.LENGTH_SHORT).show()
                             }
-
                             else -> {
-                                // Handle other exceptions
                                 Log.e("SignUpActivity", "Gagal membuat akun: ${exception?.message}")
                                 Toast.makeText(this, "Gagal membuat akun", Toast.LENGTH_SHORT).show()
                             }
@@ -78,6 +89,7 @@ class SignUpActivity : AppCompatActivity() {
                 }
         }
     }
+
 
     private fun validateInput(fullname: String, email: String, password: String, confirmPassword: String): Boolean {
         if (fullname.isEmpty()) {
@@ -133,7 +145,8 @@ class SignUpActivity : AppCompatActivity() {
         val database = Firebase.database("https://priority-2e229-default-rtdb.asia-southeast1.firebasedatabase.app/").reference
         val userMap = mapOf(
             "fullname" to fullname,
-            "email" to email
+            "email" to email,
+            "points" to 0.000 // Tambahkan kolom points dengan nilai awal 0.0
         )
 
         database.child("users").child(uid).setValue(userMap)
@@ -149,10 +162,5 @@ class SignUpActivity : AppCompatActivity() {
 
     private fun startSignInActivity() {
         startActivity(Intent(this, SignInActivity::class.java))
-    }
-
-    private fun startDashboardFragment() {
-        startActivity(Intent(this,DashboardFragment::class.java))
-        finish()
     }
 }

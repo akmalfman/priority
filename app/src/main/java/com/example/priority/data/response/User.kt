@@ -1,12 +1,8 @@
-import com.google.gson.annotations.SerializedName
+package com.example.priority.data.response
 
 data class User(
-    @field:SerializedName("name")
-    val name: String? = null,
-
-    @field:SerializedName("score")
-    val score: Double? = null,
-
-    @field:SerializedName("profileImageUrl")
+    val id: String,
+    val name: String,
+    val points: Double? = 0.000,
     val profileImageUrl: String? = null
 )

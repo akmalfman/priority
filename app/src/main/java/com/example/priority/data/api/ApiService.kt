@@ -1,6 +1,5 @@
 package com.example.priority.data.api
 
-import User
 import com.example.priority.data.response.EmisiResponse
 import com.example.priority.data.response.FileUploadResponse
 import okhttp3.MultipartBody
@@ -22,6 +21,6 @@ interface ApiService {
         @Query("bbm") bbm: String
     ): EmisiResponse
 
-    @GET("leaderboard")
-    fun getLeaderboard(): Call<List<User>>
+//    @GET("leaderboard")
+//    fun getLeaderboard(): Call<List<User>>
 }

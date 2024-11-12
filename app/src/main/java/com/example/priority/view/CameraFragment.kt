@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.viewModels
 import com.example.priority.R
@@ -17,6 +16,8 @@ import com.example.priority.databinding.FragmentCameraBinding
 import com.example.priority.utils.getImageUri
 import com.example.priority.utils.reduceFileImage
 import com.example.priority.utils.uriToFile
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 import java.text.DecimalFormat
 
 class CameraFragment : Fragment() {
@@ -26,7 +27,6 @@ class CameraFragment : Fragment() {
     }
 
     private lateinit var binding: FragmentCameraBinding
-
     private var currentImageUri: Uri? = null
 
     override fun onCreateView(
@@ -34,52 +34,69 @@ class CameraFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCameraBinding.inflate(inflater, container, false)
-
-//        val distance = arguments?.getDouble("distance") ?: 0.0
-//        val decimalFormat = DecimalFormat("#.###")
-//        val formattedDistance = decimalFormat.format(distance)
-//        binding.uploadButton.text = formattedDistance
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         binding.cameraButton.setOnClickListener { startCamera() }
-//        binding.uploadButton.setOnClickListener { uploadImage() }
+        binding.uploadButton.setOnClickListener { uploadImage() }
     }
 
     private fun uploadImage() {
         currentImageUri?.let { uri ->
             val imageFile = uriToFile(uri, requireContext()).reduceFileImage()
             Log.d("Image File", "showImage: ${imageFile.path}")
-            val description = "Ini adalah deksripsi gambar"
 
-            showLoading(true)
+            val uid = getCurrentUserId()
+            val distance = arguments?.getDouble("distance") ?: 0.0
+            val database = FirebaseDatabase
+                .getInstance("https://priority-2e229-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .reference
 
-            viewModel.uploadImage(imageFile, description).observe(viewLifecycleOwner){result ->
-                if (result != null){
-                    when(result){
-                        is ResultState.Loading -> {
-                            showLoading(true)
+            val dataMap = mapOf(
+                "imageUrl" to uri.toString(),
+                "points" to distance
+            )
+
+            if (uid != null) {
+                // Push new data
+                database.child("users").child(uid).child("uploads").push().setValue(dataMap)
+                    .addOnSuccessListener {
+                        // Retrieve current points
+                        database.child("users").child(uid).child("points").get().addOnSuccessListener { snapshot ->
+                            val currentPoints = snapshot.getValue(Double::class.java) ?: 0.0
+                            val newTotalPoints = currentPoints + distance
+
+                            database.child("users").child(uid).child("points").setValue(newTotalPoints)
+                                .addOnSuccessListener {
+                                    showToast("Data berhasil disimpan dan poin diperbarui")
+                                }
+                                .addOnFailureListener { e ->
+                                    Log.e("CameraFragment", "Gagal memperbarui poin: ${e.message}")
+                                    showToast("Gagal memperbarui poin")
+                                }
+                        }.addOnFailureListener { e ->
+                            Log.e("CameraFragment", "Gagal mengambil poin saat ini: ${e.message}")
+                            showToast("Gagal mengambil poin saat ini")
                         }
 
-                        is ResultState.Success -> {
-                            result.data.message.let { showToast(it) }
-                            showLoading(false)
-                        }
-
-                        is ResultState.Error -> {
-                            showToast(result.error)
-                            showLoading(false)
-                        }
-
-                        else -> {}
+                        showLoading(false)
                     }
-                }
+                    .addOnFailureListener { e ->
+                        Log.e("CameraFragment", "Gagal menyimpan data ke database: ${e.message}")
+                        showToast("Gagal menyimpan data ke database")
+                        showLoading(false)
+                    }
+            } else {
+                showToast("User not logged in.")
             }
         } ?: showToast(getString(R.string.empty_image_warning))
+    }
+
+
+    private fun getCurrentUserId(): String? {
+        return FirebaseAuth.getInstance().currentUser?.uid
     }
 
     private fun showToast(message: String) {
@@ -99,7 +116,10 @@ class CameraFragment : Fragment() {
         ActivityResultContracts.TakePicture()
     ) { isSuccess ->
         if (isSuccess) {
+            Toast.makeText(requireContext(), "Gambar tampil", Toast.LENGTH_SHORT).show()
             showImage()
+        } else {
+            Toast.makeText(requireContext(), "Gagal", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -107,6 +127,8 @@ class CameraFragment : Fragment() {
         currentImageUri?.let {
             Log.d("Image URI", "showImage: $it")
             binding.previewImageView.setImageURI(it)
+            binding.previewImageView.visibility = View.VISIBLE
+            binding.tvTakePicture.visibility = View.GONE
         }
     }
 }

@@ -61,8 +61,6 @@ class DashboardFragment : Fragment(){
         updateAQI(aqi)
 
         return binding.root
-
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -81,11 +79,11 @@ class DashboardFragment : Fragment(){
 
             // Panggil method di interface untuk memperbarui SmoothBottomBar di MainActivity
             listener?.onItemSelected(1)
-
-            // Tampilkan nama pengguna atau pesan jika belum login
-            updateUserName()
-
         }
+
+        // Tampilkan nama pengguna atau pesan jika belum login
+        updateUserName()
+
     }
     private fun updateUserName() {
         mAuth.currentUser?.let { currentUser ->

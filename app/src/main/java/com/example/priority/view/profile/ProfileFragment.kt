@@ -1,5 +1,6 @@
 package com.example.priority.view.profile
 
+import LeaderboardFragment
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -11,7 +12,6 @@ import android.widget.Toast
 import com.example.priority.R
 import com.example.priority.databinding.FragmentProfileBinding
 import com.example.priority.utils.OnSmoothBottomBarItemSelectedListener
-import com.example.priority.view.leaderboard.LeaderboardFragment
 import com.example.priority.view.login.SignInActivity
 import com.google.firebase.auth.FirebaseAuth
 

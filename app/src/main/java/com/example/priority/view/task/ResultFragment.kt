@@ -155,9 +155,7 @@ class ResultFragment : Fragment() {
 
     private fun calculateEmissions() {
         val distance = arguments?.getDouble("distance") ?: 0.0
-//
-//        Log.e("pilih_masuk", "calculateEmissions: haloo", )
-//        // Tentukan faktor emisi berdasarkan kendaraan dan bahan bakar yang dipilih
+
         val emissionFactor = when {
             binding.cvMotorcycle.isSelected && binding.radioButtonBensin.isChecked -> 0.035
             binding.cvMotorcycle.isSelected && binding.radioButtonListrik.isChecked -> 0.021
@@ -169,10 +167,6 @@ class ResultFragment : Fragment() {
             binding.cvTrain.isSelected && binding.radioButtonListrik.isChecked -> 0.028
             else -> 0.0
         }
-
-
-//
-//        val distanceDouble = formattedDistance.toDouble()
 
         val emissions = distance * emissionFactor
 
