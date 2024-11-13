@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.priority.data.response.User
 import com.example.priority.databinding.FragmentLeaderboardBinding
 import com.example.priority.view.leaderboard.LeaderboardAdapter
 import com.google.firebase.database.*

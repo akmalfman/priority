@@ -21,8 +21,9 @@
 
     <ImageView
         android:id="@+id/imgHallo"
-        android:layout_width="215dp"
-        android:layout_height="185dp"
+        android:layout_width="243dp"
+        android:layout_height="208dp"
+        android:layout_marginTop="100dp"
         android:paddingTop="0dp"
         android:paddingBottom="3dp"
         android:scaleType="centerCrop"
