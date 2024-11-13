@@ -44,7 +44,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgHallo"
         app:boxStrokeColor="@color/blue_ligth"
-        app:hintTextColor="@color/blue">
+        app:hintTextColor="@color/blue"
+        app:errorTextColor="@color/blue">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -55,7 +56,9 @@
             android:paddingTop="8dp"
             android:paddingEnd="16dp"
             android:paddingBottom="8dp"
-            android:password="false" />
+            android:password="false"
+            android:textColor="@color/blue"
+            android:textColorHint="@color/blue"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -70,7 +73,8 @@
         app:layout_constraintTop_toBottomOf="@+id/etEmail"
         app:endIconMode="password_toggle"
         app:boxStrokeColor="@color/blue_ligth"
-        app:hintTextColor="@color/blue">
+        app:hintTextColor="@color/blue"
+        app:errorTextColor="@color/blue">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tvPassText"
@@ -82,7 +86,9 @@
             android:paddingTop="8dp"
             android:paddingEnd="16dp"
             android:paddingBottom="8dp"
-            android:password="true" />
+            android:password="true"
+            android:textColor="@color/blue"
+            android:textColorHint="@color/blue"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -144,13 +150,14 @@
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/signInButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/circle_bg"
         app:layout_constraintTop_toBottomOf="@+id/tvUsingMethod"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

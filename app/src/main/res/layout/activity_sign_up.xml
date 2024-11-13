@@ -56,7 +56,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/textView4"
         app:boxStrokeColor="@color/blue_ligth"
-        app:hintTextColor="@color/blue">
+        app:hintTextColor="@color/blue"
+        app:errorTextColor="@color/blue">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -67,7 +68,9 @@
             android:paddingTop="8dp"
             android:paddingEnd="16dp"
             android:paddingBottom="8dp"
-            android:password="false" />
+            android:password="false"
+            android:textColor="@color/blue"
+            android:textColorHint="@color/blue"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -83,7 +86,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etEmail"
         app:boxStrokeColor="@color/blue_ligth"
-        app:hintTextColor="@color/blue">
+        app:hintTextColor="@color/blue"
+        app:errorTextColor="@color/blue">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
@@ -93,7 +97,9 @@
             android:paddingStart="16dp"
             android:paddingTop="8dp"
             android:paddingEnd="16dp"
-            android:paddingBottom="8dp" />
+            android:paddingBottom="8dp"
+            android:textColor="@color/blue"
+            android:textColorHint="@color/blue"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -108,7 +114,8 @@
         app:layout_constraintTop_toBottomOf="@+id/etFullname"
         app:endIconMode="password_toggle"
         app:boxStrokeColor="@color/blue_ligth"
-        app:hintTextColor="@color/blue">
+        app:hintTextColor="@color/blue"
+        app:errorTextColor="@color/blue">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tvPass"
@@ -120,7 +127,9 @@
             android:paddingTop="8dp"
             android:paddingEnd="16dp"
             android:paddingBottom="8dp"
-            android:password="true" />
+            android:password="true"
+            android:textColor="@color/blue"
+            android:textColorHint="@color/blue"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -135,7 +144,8 @@
         app:layout_constraintTop_toBottomOf="@+id/etPassword"
         app:endIconMode="password_toggle"
         app:boxStrokeColor="@color/blue_ligth"
-        app:hintTextColor="@color/blue">
+        app:hintTextColor="@color/blue"
+        app:errorTextColor="@color/blue">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/tvConfirmPass"
@@ -147,7 +157,9 @@
             android:paddingTop="8dp"
             android:paddingEnd="16dp"
             android:paddingBottom="8dp"
-            android:password="true" />
+            android:password="true"
+            android:textColor="@color/blue"
+            android:textColorHint="@color/blue"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

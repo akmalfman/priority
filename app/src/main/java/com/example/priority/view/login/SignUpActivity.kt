@@ -7,18 +7,19 @@ import android.util.Log
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.priority.R
 import com.example.priority.databinding.ActivitySignUpBinding
 import com.example.priority.view.main.DashboardFragment
 import com.example.priority.view.main.MainActivity
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
@@ -191,6 +192,10 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun signInGoogle() {
+        val signInButton = findViewById<SignInButton>(R.id.signInButton)
+        signInButton.setSize(SignInButton.SIZE_ICON_ONLY) // Menghilangkan teks dan hanya menampilkan ikon
+        signInButton.setPadding(0, 0, 0, 0)
+
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken("55984212820-qir4qmee5mgd8icp8or7s7kapgns67qo.apps.googleusercontent.com")
             .requestEmail()

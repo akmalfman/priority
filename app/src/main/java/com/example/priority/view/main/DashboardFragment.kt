@@ -8,9 +8,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.replace
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -20,6 +22,7 @@ import com.example.priority.R
 import com.example.priority.data.ResultState
 import com.example.priority.data.response.AqiResponse
 import com.example.priority.databinding.FragmentDashboardBinding
+import com.example.priority.view.calculator.CalculatorFragment
 import com.example.priority.view.task.TaskFragment
 import com.google.firebase.auth.FirebaseAuth
 
@@ -62,14 +65,28 @@ class DashboardFragment : Fragment(){
         updateAQI(aqi)
 
         return binding.root
-
-        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         mAuth = FirebaseAuth.getInstance()
+
+//        val btnCalc: ImageButton = view.findViewById(R.id.btnCalc)
+//        btnCalc.setOnClickListener {
+//
+//        }
+
+        binding.btnCalc.setOnClickListener {
+            val calculatorFragment = CalculatorFragment()
+
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.frame, calculatorFragment)
+                .addToBackStack(null)
+                .commit()
+
+            listener?.onItemSelected(1)
+        }
 
         binding.btnRekomendasi.setOnClickListener {
             val taskFragment = TaskFragment()
@@ -85,7 +102,6 @@ class DashboardFragment : Fragment(){
 
             // Tampilkan nama pengguna atau pesan jika belum login
             updateUserName()
-
         }
     }
     private fun updateUserName() {
@@ -103,7 +119,7 @@ class DashboardFragment : Fragment(){
 
         // Change color based on AQI value
         val color = when {
-            aqi <= 50 -> R.color.green  // Good (0-50)
+            aqi <= 50 -> R.color.white  // Good (0-50)
             aqi <= 100 -> R.color.yellow // Moderate (51-100)
             aqi <= 150 -> R.color.orange // Unhealthy for Sensitive Groups (101-150)
             aqi <= 200 -> R.color.red    // Unhealthy (151-200)
