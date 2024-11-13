@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.task.TrackingActivity">
+    tools:context=".view.task.TrackingFragment">
 
     <fragment
         android:id="@+id/map"
@@ -21,18 +21,18 @@
         android:id="@+id/btnStart"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="35dp"
+        android:layout_marginBottom="80dp"
         android:text="@string/start_running"
         map:layout_constraintBottom_toBottomOf="parent"
         map:layout_constraintEnd_toEndOf="parent"
         map:layout_constraintStart_toStartOf="parent"
-        android:backgroundTint="@color/blue_ligth"/>
+        android:backgroundTint="@color/blue"/>
 
     <ImageButton
         android:id="@+id/btnNext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/blue_ligth"
+        android:backgroundTint="@color/blue"
         android:src="@drawable/baseline_arrow_forward_24"
         map:layout_constraintBottom_toBottomOf="@+id/btnStart"
         map:layout_constraintEnd_toEndOf="parent"

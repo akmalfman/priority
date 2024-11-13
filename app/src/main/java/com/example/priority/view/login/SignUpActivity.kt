@@ -2,23 +2,13 @@ package com.example.priority.view.login
 
 import android.content.Intent
 import android.os.Bundle
-import android.text.InputType
 import android.util.Log
-import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.priority.R
 import com.example.priority.databinding.ActivitySignUpBinding
 import com.example.priority.view.main.DashboardFragment
-import com.example.priority.view.main.MainActivity
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.SignInButton
-import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
-import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -34,40 +24,6 @@ class SignUpActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         initListeners()
-        setupPasswordVisibilityToggle()
-
-//        binding.signInButton.setOnClickListener {
-//            signInGoogle()
-//        }
-
-    }
-
-    private fun setupPasswordVisibilityToggle() {
-        // Initialize visibility states
-        var isPasswordVisible = false
-        var isConfirmPasswordVisible = false
-
-        // Toggle password visibility
-        binding.etPassword.setEndIconOnClickListener {
-            isPasswordVisible = togglePasswordVisibility(isPasswordVisible, binding.tvPass)
-        }
-
-        // Toggle confirm password visibility
-        binding.etConfirmPassword.setEndIconOnClickListener {
-            isConfirmPasswordVisible = togglePasswordVisibility(isConfirmPasswordVisible, binding.tvConfirmPass)
-        }
-    }
-
-    // Helper function to toggle password visibility
-    private fun togglePasswordVisibility(isVisible: Boolean, editText: EditText): Boolean {
-        val newVisibility = !isVisible
-        editText.inputType = if (newVisibility) {
-            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-        } else {
-            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
-        }
-        editText.setSelection(editText.text.length) // Set cursor to end
-        return newVisibility
     }
 
     private fun initListeners() {
@@ -190,74 +146,6 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this, "Gagal menyimpan data pengguna", Toast.LENGTH_SHORT).show()
             }
     }
-
-//    private fun signInGoogle() {
-//        val signInButton = findViewById<SignInButton>(R.id.signInButton)
-//        signInButton.setSize(SignInButton.SIZE_ICON_ONLY) // Menghilangkan teks dan hanya menampilkan ikon
-//        signInButton.setPadding(0, 0, 0, 0)
-//
-//        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//            .requestIdToken("55984212820-qir4qmee5mgd8icp8or7s7kapgns67qo.apps.googleusercontent.com")
-//            .requestEmail()
-//            .build()
-//
-//        val googleSignInClient = GoogleSignIn.getClient(this, gso)
-//        val signInIntent = googleSignInClient.signInIntent
-//        startActivityForResult(signInIntent, RC_SIGN_IN)
-//    }
-//
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//
-//        if (requestCode == RC_SIGN_IN) {
-//            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-//            try {
-//                val account = task.getResult(ApiException::class.java)
-//                firebaseAuthWithGoogle(account.idToken!!)
-//            } catch (e: ApiException) {
-//                Log.w("SignInActivity", "Google sign-in failed", e)
-//                Toast.makeText(this, "Google sign-in failed: ${e.statusCode}", Toast.LENGTH_SHORT).show()
-//            }
-//        }
-//    }
-//
-//    private fun firebaseAuthWithGoogle(idToken: String) {
-//        val credential = GoogleAuthProvider.getCredential(idToken, null)
-//        auth.signInWithCredential(credential)
-//            .addOnCompleteListener(this) { task ->
-//                if (task.isSuccessful) {
-//                    val userResponse = auth.currentUser
-//                    Log.d(TAG, "signInWithCredential:success")
-//                    updateUI(userResponse)
-//                } else {
-//                    Log.w(TAG, "signInWithCredential:failure", task.exception)
-//                    Toast.makeText(this, "Authentication Failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
-//                    updateUI(null)
-//                }
-//            }
-//    }
-//
-//    private fun updateUI(user: FirebaseUser?) {
-//        if (user != null) {
-//            val intent = Intent(this, MainActivity::class.java)
-//            startActivity(intent)
-//            finish()
-//        } else {
-//            Log.e("SignInActivity", "User is null, login failed")
-//        }
-//    }
-//
-//    override fun onStart() {
-//        super.onStart()
-//        val currentUser = auth.currentUser
-//        updateUI(currentUser)
-//    }
-
-    companion object {
-        private const val TAG = "SignInActivity"
-        private const val RC_SIGN_IN = 9001
-    }
-
 
     private fun startSignInActivity() {
         startActivity(Intent(this, SignInActivity::class.java))

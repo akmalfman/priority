@@ -213,15 +213,12 @@
 
                 <ImageButton
                     android:id="@+id/btnCalc"
-                    android:layout_width="184dp"
-                    android:layout_height="116dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:layout_width="186dp"
+                    android:layout_height="156dp"
                     android:importantForAccessibility="no"
                     android:src="@drawable/calcdash"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/tvBukti"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    tools:ignore="MissingConstraints" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -344,10 +341,11 @@
                     android:fontFamily="@font/asap_bold"
                     android:gravity="end"
                     android:text="Terakhir diperbarui 15.00, 22 Des 2023"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -389,7 +387,6 @@
             android:paddingRight="12dp"
             android:text="Mulai Aja Dulu"
             android:textSize="12sp"
-            android:textColor="@color/white"
             app:layout_constraintHorizontal_bias="0.5" />
 
     </LinearLayout>

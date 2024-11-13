@@ -28,8 +28,14 @@ class DetailFragment : Fragment() {
 
         // Set click listener to navigate to TrackingActivity
         binding.btnTracking.setOnClickListener {
-            val intent = Intent(requireContext(), TrackingActivity::class.java)
-            startActivity(intent)
+//            val intent = Intent(requireContext(), TrackingActivity::class.java)
+//            startActivity(intent)
+
+            val trackingFragment = TrackingFragment()
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.frame, trackingFragment) // pastikan ID sesuai dengan container di layout
+                .addToBackStack(null) // tambahkan ke back stack jika Anda ingin bisa kembali
+                .commit()
         }
     }
 

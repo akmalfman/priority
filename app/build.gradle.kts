@@ -4,16 +4,17 @@ plugins {
     // Add the Google services Gradle plugin
     id("com.google.gms.google-services")
     kotlin("kapt")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
     namespace = "com.example.priority"
-    compileSdk = 35
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.priority"
         minSdk = 21
-        targetSdk = 35
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -57,8 +58,6 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:22.3.0")
     implementation("com.google.firebase:firebase-firestore-ktx:25.1.1")
     implementation("com.google.firebase:firebase-database:21.0.0")
-    implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
-    implementation("com.google.firebase:firebase-messaging:24.0.3")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
@@ -84,9 +83,6 @@ dependencies {
 
     implementation("com.google.android.gms:play-services-maps:18.1.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")
-    implementation("com.google.android.gms:play-services-auth:20.5.0")
-    implementation("androidx.credentials:credentials-play-services-auth:1.5.0-beta01")
-
 
     implementation ("com.github.bumptech.glide:glide:4.15.1")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.15.1")
@@ -96,14 +92,6 @@ dependencies {
     kapt ("androidx.room:room-compiler:$room_version")
     implementation ("androidx.room:room-ktx:$room_version")
 
-    implementation("androidx.credentials:credentials:1.0.0-beta01")
-
-    implementation("com.google.firebase:firebase-auth-ktx")
-
-    implementation("com.google.firebase:firebase-bom:31.0.2")
-    implementation("com.google.android.gms:play-services-auth:18.4.0")
-    implementation("com.google.firebase:firebase-auth:21.0.5")
-
-
-
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
+    implementation("com.google.android.gms:play-services-location:21.2.0")
 }

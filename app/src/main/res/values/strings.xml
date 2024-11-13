@@ -43,7 +43,7 @@
     <string name="tantangan">1. Menggunakan transportasi umum.\n2. Pilihlah apa jenis polutan yang dikeluarkan oleh transportasi umum yang kamu pakai.\n3. Hitung polutan yang dikeluarkan oleh transportasi umum yang kamu pakai.\n4. Dokumentasikan tantangan ini, selfie dengan sopirnya atau foto kendaraannya. Jangan lupa minta izin untuk meminta foto kendaraannya. \n5. Submit tantangan kamu dengan mengupload foto, mengaktifkan lokasi kamu, dan kalkulasi polutan yang dikeluarkan</string>
     <string name="title_activity_tracking">TrackingActivity</string>
 
-    <string name="start_running">Start Running</string>
-    <string name="stop_running">Stop Running</string>
+    <string name="start_running">Start</string>
+    <string name="stop_running">Stop</string>
     <string name="start_point">Start Point</string>
 </resources>

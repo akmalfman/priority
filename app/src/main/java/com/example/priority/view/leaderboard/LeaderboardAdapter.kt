@@ -1,13 +1,13 @@
 package com.example.priority.view.leaderboard
 
-import User
+import android.R
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.priority.R
+import com.example.priority.data.response.User
 import com.example.priority.databinding.ItemRowLeaderboardBinding
+import java.text.DecimalFormat
 
 class LeaderboardAdapter(private var leaderboardList: List<User>) :
     RecyclerView.Adapter<LeaderboardAdapter.LeaderboardViewHolder>() {
@@ -35,11 +35,16 @@ class LeaderboardAdapter(private var leaderboardList: List<User>) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(user: User, position: Int) {
-            binding.tvRank.text = "${position + 1}"
-            binding.tvItemName.text = user.name
-            binding.tvItemSkore.text = user.score.toString()
+            binding.tvRank.text = "${position + 1}" // Rank starts from 1
+            binding.tvItemName.text = user.name  // Display user's fullname (mapped as 'name' in User)
+            val decimalFormat = DecimalFormat("#.###")
+            val formattedDistance = decimalFormat.format(user.points)
+            binding.tvItemSkore.text = formattedDistance.toString()  // Display user's points
+
+            // Load image using Glide
             Glide.with(binding.root.context)
-                .load(user.profileImageUrl) // Use Glide to load image from URL
+                .load(user.profileImageUrl)
+                .placeholder(R.drawable.ic_menu_report_image) // Optional placeholder
                 .into(binding.imgRank)
         }
     }
