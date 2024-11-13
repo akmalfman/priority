@@ -20,6 +20,9 @@ import com.example.priority.utils.uriToFile
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 import java.text.DecimalFormat
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 class CameraFragment : Fragment() {
 
@@ -55,9 +58,15 @@ class CameraFragment : Fragment() {
                 .getInstance("https://priority-2e229-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .reference
 
+            // Generate current date and time
+            val currentDate = SimpleDateFormat("dd MMM, yyyy", Locale.getDefault()).format(Date())
+            val currentTime = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
+
             val dataMap = mapOf(
                 "imageUrl" to uri.toString(),
-                "points" to distance
+                "points" to distance,
+                "date" to currentDate,
+                "clock" to currentTime
             )
 
             if (uid != null) {
@@ -96,12 +105,12 @@ class CameraFragment : Fragment() {
                         showToast("Gagal menyimpan data ke database")
                         showLoading(false)
                     }
-
             } else {
                 showToast("User not logged in.")
             }
         } ?: showToast(getString(R.string.empty_image_warning))
     }
+
 
 
     private fun getCurrentUserId(): String? {

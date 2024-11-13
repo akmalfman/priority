@@ -1,5 +1,6 @@
 package com.example.priority.view.profile
 
+import HistoryAdapter
 import LeaderboardFragment
 import android.content.Context
 import android.content.Intent
@@ -10,8 +11,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.priority.R
+import com.example.priority.data.response.Upload
 import com.example.priority.databinding.FragmentProfileBinding
 import com.example.priority.utils.OnSmoothBottomBarItemSelectedListener
 import com.example.priority.view.login.SignInActivity
@@ -57,12 +60,44 @@ class ProfileFragment : Fragment() {
         updateUserName()
         updateProfileImage()
         updatePoints()
+        loadUserHistory()
     }
+
+    private fun loadUserHistory() {
+        val userId = mAuth.currentUser?.uid ?: return
+        val database = FirebaseDatabase
+            .getInstance("https://priority-2e229-default-rtdb.asia-southeast1.firebasedatabase.app/")
+            .getReference("users")
+        database.child(userId).child("uploads")
+            .addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val imageUrls = mutableListOf<String>()
+                    for (childSnapshot in snapshot.children) {
+                        val upload = childSnapshot.getValue(Upload::class.java)
+                        if (upload != null) {
+                            imageUrls.add(upload.imageUrl)
+                        } else {
+                            Log.e("ProfileFragment", "Invalid upload data type in uploads")
+                        }
+                    }
+                    // Set up the RecyclerView adapter with the image URLs
+                    binding.rvHistories.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+                    val adapter = HistoryAdapter(requireContext(), imageUrls)
+                    binding.rvHistories.adapter = adapter
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("ProfileFragment", "Failed to fetch user history: ${error.message}")
+                }
+            })
+    }
+
+
 
     private fun setClickListeners() {
         with(binding) {
-            tvPartisipasi.setOnClickListener { replaceFragment(LeaderboardFragment()) }
-            imgNextPartisipasi.setOnClickListener { replaceFragment(LeaderboardFragment()) }
+            tvPartisipasi.setOnClickListener { replaceFragment(DetailHistoryFragment()) }
+            imgNextPartisipasi.setOnClickListener { replaceFragment(DetailHistoryFragment()) }
             EditProfile.setOnClickListener { replaceFragment(EditProfileFragment()) }
             TentangAplikasi.setOnClickListener { replaceFragment(AboutFragment()) }
             FAQ.setOnClickListener { replaceFragment(FaqFragment()) }

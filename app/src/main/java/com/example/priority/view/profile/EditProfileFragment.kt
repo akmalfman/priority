@@ -125,16 +125,18 @@ class EditProfileFragment : Fragment() {
     }
 
     private fun saveImageLocally(uri: Uri): String? {
+        val userId = auth.currentUser?.uid ?: return null
         val inputStream = requireContext().contentResolver.openInputStream(uri)
-        val fileName = "profile_image.png"
+        val fileName = "profile_image_$userId.png" // Use user-specific filename
         val file = File(requireContext().filesDir, fileName)
         inputStream?.use { input ->
             file.outputStream().use { output ->
                 input.copyTo(output)
             }
         }
-        return file.absolutePath // Mengembalikan path file yang disimpan secara lokal
+        return file.absolutePath // Return the absolute path of the saved image
     }
+
 
     private fun saveUserDataToFirebase(uid: String, fullname: String, profileImageUrl: String?) {
         val database = Firebase.database("https://priority-2e229-default-rtdb.asia-southeast1.firebasedatabase.app/").reference

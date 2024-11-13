@@ -112,7 +112,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cvPartisipasi"
             android:layout_width="350dp"
-            android:layout_height="120dp"
+            android:layout_height="140dp"
             android:layout_marginTop="18dp"
             app:cardCornerRadius="15dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -136,18 +136,6 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/tvPartisipasiValue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:fontFamily="@font/fredo"
-                    android:text="1"
-                    android:textColor="@color/btn_color_state"
-                    android:textSize="18sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/imgNextPartisipasi"
-                    app:layout_constraintEnd_toStartOf="@+id/imgNextPartisipasi"
-                    app:layout_constraintTop_toTopOf="@+id/imgNextPartisipasi" />
 
                 <ImageView
                     android:id="@+id/imgNextPartisipasi"
@@ -160,47 +148,15 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/tvPartisipasi" />
 
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:backgroundTint="#6DB9EF"
-                    app:cardCornerRadius="50dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginStart="12dp"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_histories"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvPartisipasi">
+                    app:layout_constraintTop_toBottomOf="@+id/imgNextPartisipasi" />
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:id="@+id/tvDayPartisipasi"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/fredo"
-                            android:text="Day"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:layout_marginTop="8dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/tvTierValue"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/fredo"
-                            android:text="1"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/tvDayPartisipasi" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.cardview.widget.CardView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
