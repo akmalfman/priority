@@ -83,6 +83,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/tvName" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgProfile"
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_gravity="center"
@@ -137,8 +138,8 @@
                     android:text="POINT"
                     android:textColor="@color/white"
                     android:textSize="14sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
-                    app:layout_constraintEnd_toStartOf="@+id/circleImageView"
+                    app:layout_constraintBottom_toBottomOf="@+id/civLeaderboard"
+                    app:layout_constraintEnd_toStartOf="@+id/civLeaderboard"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
@@ -154,7 +155,7 @@
                     app:layout_constraintTop_toTopOf="@+id/tvPoint" />
 
                 <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/circleImageView"
+                    android:id="@+id/civLeaderboard"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_gravity="center"

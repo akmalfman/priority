@@ -46,4 +46,5 @@
     <string name="start_running">Start</string>
     <string name="stop_running">Stop</string>
     <string name="start_point">Start Point</string>
+    <string name="menu_leader">Leaderboard\n</string>
 </resources>

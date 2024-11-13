@@ -1,5 +1,6 @@
 package com.example.priority.view
 
+import LeaderboardFragment
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
@@ -82,12 +83,20 @@ class CameraFragment : Fragment() {
                         }
 
                         showLoading(false)
+                        val leaderboardFragment = LeaderboardFragment()
+
+                        // Ganti fragment
+                        requireActivity().supportFragmentManager.beginTransaction()
+                            .replace(R.id.frame, leaderboardFragment)
+                            .addToBackStack(null)
+                            .commit()
                     }
                     .addOnFailureListener { e ->
                         Log.e("CameraFragment", "Gagal menyimpan data ke database: ${e.message}")
                         showToast("Gagal menyimpan data ke database")
                         showLoading(false)
                     }
+
             } else {
                 showToast("User not logged in.")
             }

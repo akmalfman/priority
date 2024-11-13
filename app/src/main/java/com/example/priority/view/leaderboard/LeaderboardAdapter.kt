@@ -1,10 +1,10 @@
 package com.example.priority.view.leaderboard
 
-import android.R
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.priority.R
 import com.example.priority.data.response.User
 import com.example.priority.databinding.ItemRowLeaderboardBinding
 import java.text.DecimalFormat
@@ -41,10 +41,9 @@ class LeaderboardAdapter(private var leaderboardList: List<User>) :
             val formattedDistance = decimalFormat.format(user.points)
             binding.tvItemSkore.text = formattedDistance.toString()  // Display user's points
 
-            // Load image using Glide
             Glide.with(binding.root.context)
-                .load(user.profileImageUrl)
-                .placeholder(R.drawable.ic_menu_report_image) // Optional placeholder
+                .load(if (user.profileImageUrl!!.isNotBlank()) user.profileImageUrl else null)
+                .placeholder(R.drawable.dummy_pp) // Replace R.drawable.dummy_pp with your drawable resource
                 .into(binding.imgRank)
         }
     }

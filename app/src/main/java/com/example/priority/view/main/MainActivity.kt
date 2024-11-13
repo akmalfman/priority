@@ -19,6 +19,7 @@ import com.example.priority.view.profile.ProfileFragment
 import com.example.priority.R
 import com.example.priority.data.ResultState
 import com.example.priority.view.calculator.CalculatorFragment
+import com.example.priority.view.task.DetailFragment
 import com.example.priority.view.task.TaskFragment
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
@@ -45,7 +46,7 @@ class MainActivity : AppCompatActivity(), OnSmoothBottomBarItemSelectedListener,
         binding.bottomBar.setOnItemSelectedListener {
             when(it){
                 0 -> getMyLastLocation()
-                1 -> gantiFragment(TaskFragment())
+                1 -> gantiFragment(DetailFragment())
                 2 -> gantiFragment(CalculatorFragment())
                 3 -> gantiFragment(ProfileFragment())
             }
