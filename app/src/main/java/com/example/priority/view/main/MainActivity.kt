@@ -159,6 +159,7 @@ class MainActivity : AppCompatActivity(), OnSmoothBottomBarItemSelectedListener,
                                     mBundle.putString("textAqiu",result.data.data.current?.pollution?.aqius.toString())
                                     mBundle.putString("textCity",result.data.data.city.toString())
                                     mBundle.putString("textState",result.data.data.state.toString())
+                                    mBundle.putString("textTime",result.data.data.current?.pollution?.ts.toString())
                                     mFragment.arguments = mBundle
                                     mFragmentTransaction.replace(R.id.frame, mFragment).commit()
 

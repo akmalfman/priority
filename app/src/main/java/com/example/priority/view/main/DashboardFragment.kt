@@ -21,6 +21,13 @@ import com.example.priority.data.response.AqiResponse
 import com.example.priority.databinding.FragmentDashboardBinding
 import com.example.priority.view.task.TaskFragment
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import java.text.DecimalFormat
+import java.text.SimpleDateFormat
+import java.util.*
 
 class DashboardFragment : Fragment(){
 
@@ -50,6 +57,7 @@ class DashboardFragment : Fragment(){
 
         val bundle = arguments
         val aqiString = bundle?.getString("textAqiu")
+        val time = bundle?.getString("textTime")
         val city = bundle?.getString("textCity") ?: ""
         val state = bundle?.getString("textState") ?: ""
         val aqi = aqiString?.toIntOrNull() ?: 0
@@ -57,6 +65,14 @@ class DashboardFragment : Fragment(){
         binding.tvAqi.text = aqi.toString()
         binding.tvCity.text = city
         binding.tvState.text = state
+
+        // Format and display the time string if it exists
+        if (time != null) {
+            val formattedTime = formatTime(time)
+            binding.tvTime.text = formattedTime
+        } else {
+            binding.tvTime.text = "N/A" // Default text if time is null
+        }
 
         updateAQI(aqi)
 
@@ -83,8 +99,26 @@ class DashboardFragment : Fragment(){
 
         // Tampilkan nama pengguna atau pesan jika belum login
         updateUserName()
+        updatePoint()
 
     }
+
+    private fun formatTime(isoTime: String): String {
+        return try {
+            // Parse the ISO date string
+            val isoFormatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault())
+            isoFormatter.timeZone = TimeZone.getTimeZone("UTC") // Ensure UTC timezone
+            val date = isoFormatter.parse(isoTime)
+
+            // Format the date to a more user-friendly format
+            val outputFormatter = SimpleDateFormat("dd MMM yyyy, HH:mm", Locale.getDefault())
+            outputFormatter.format(date)
+        } catch (e: Exception) {
+            Log.e("DashboardFragment", "Error parsing date: ${e.message}")
+            "Invalid date"
+        }
+    }
+
     private fun updateUserName() {
         mAuth.currentUser?.let { currentUser ->
             val displayName = currentUser.displayName
@@ -113,5 +147,31 @@ class DashboardFragment : Fragment(){
             resources.getColor(color, null),
             android.graphics.PorterDuff.Mode.SRC_IN
         )
+    }
+
+    private fun updatePoint() {
+        val database = FirebaseDatabase
+            .getInstance("https://priority-2e229-default-rtdb.asia-southeast1.firebasedatabase.app/")
+            .getReference("users")
+        val userId = mAuth.currentUser?.uid
+
+        if (userId != null) {
+            database.child(userId).child("points").addListenerForSingleValueEvent(object :
+                ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val points = snapshot.getValue(Double::class.java) ?: 0.0
+                    val decimalFormat = DecimalFormat("#.###")
+                    val formattedDistance = decimalFormat.format(points)
+                    binding.tvPointValue.text = formattedDistance.toString()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.e("DashboardFragment", "Error fetching points: ${error.message}")
+                    binding.tvPointValue.text = "0" // Handle failure by setting default value
+                }
+            })
+        } else {
+            binding.tvPointValue.text = "0" // User not logged in or null UID
+        }
     }
 }

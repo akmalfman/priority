@@ -173,7 +173,6 @@ class ResultFragment : Fragment() {
         val decimalFormat = DecimalFormat("#.###")
         val formattedDistance = decimalFormat.format(emissions)
 
-        Log.d("polusi", "calculateEmissions: $formattedDistance")
         binding.edtJumlah.setText(formattedDistance)
 
         binding.btnNext.visibility = View.VISIBLE

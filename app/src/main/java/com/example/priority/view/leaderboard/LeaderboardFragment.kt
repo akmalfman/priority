@@ -49,7 +49,7 @@ class LeaderboardFragment : Fragment() {
                     val name = userSnapshot.child("fullname").getValue(String::class.java) ?: "Unknown"
                     val points = userSnapshot.child("points").getValue(Double::class.java) ?: 0.0
                     val profileImageUrl = userSnapshot.child("profileImageUrl").getValue(String::class.java) ?: ""
-                    Log.e("firebaseeeeeeee", "onDataChange: $name", )
+
                     if (name.isNotBlank() && points >= 0) { // Validasi data
                         val user = User(userId, name, points, profileImageUrl)
                         tempList.add(user)
