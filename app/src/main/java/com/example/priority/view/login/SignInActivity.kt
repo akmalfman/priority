@@ -1,6 +1,5 @@
 package com.example.priority.view.login
 
-import User
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.priority.databinding.ActivitySignInBinding
@@ -10,8 +9,8 @@ import android.util.Log
 import android.widget.Toast
 import com.example.priority.R
 import com.example.priority.view.main.MainActivity
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+//import com.google.android.gms.auth.api.signin.GoogleSignIn
+//import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.SignInButton
 import com.google.android.gms.common.api.ApiException
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException

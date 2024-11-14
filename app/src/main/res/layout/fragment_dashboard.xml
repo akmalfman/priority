@@ -63,21 +63,21 @@
                     android:maxLines="1"
                     android:text="John Doe"
                     android:textColor="@color/white"
-                    android:textSize="30sp"
+                    android:textSize="20sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvHello" />
 
                 <TextView
                     android:id="@+id/tvAyo"
-                    android:layout_width="160dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
+                    android:layout_marginBottom="14dp"
                     android:fontFamily="@font/asap"
                     android:text="Ayo hirup udara sehat!"
                     android:textColor="@color/white"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvName" />
@@ -128,27 +128,16 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tvTier"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/asap"
-                    android:text="TIER | RANK"
-                    android:textColor="@color/white"
-                    android:textSize="14sp"
-                    app:layout_constraintEnd_toEndOf="@+id/tvPoint"
-                    app:layout_constraintTop_toBottomOf="@+id/tvPoint" />
-
-                <TextView
                     android:id="@+id/tvPoint"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="18dp"
                     android:layout_marginEnd="8dp"
                     android:fontFamily="@font/asap"
-                    android:text="POIN"
+                    android:text="POINT"
                     android:textColor="@color/white"
                     android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/circleImageView"
                     app:layout_constraintEnd_toStartOf="@+id/circleImageView"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -303,8 +292,8 @@
                     android:rotation="270"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTerakhir"
                     app:layout_constraintStart_toEndOf="@+id/tvStatus"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTime"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
@@ -315,10 +304,10 @@
                     android:text="99"
                     android:textColor="@color/white"
                     android:textSize="28sp"
-                    app:layout_constraintBottom_toBottomOf="@+id/tvStatus"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/tvStatus"
-                    app:layout_constraintTop_toBottomOf="@+id/tvTerakhir" />
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintEnd_toEndOf="@+id/progress_aqi"
+                    app:layout_constraintStart_toStartOf="@+id/progress_aqi"
+                    app:layout_constraintTop_toTopOf="@id/progress_aqi"/>
 
                 <TextView
                     android:id="@+id/tvAqiText"
@@ -328,23 +317,37 @@
                     android:text="AQI US"
                     android:textColor="@color/white"
                     android:textSize="18sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/tvStatus"
+                    app:layout_constraintEnd_toEndOf="@+id/progress_aqi"
+                    app:layout_constraintHorizontal_bias="0.504"
+                    app:layout_constraintStart_toStartOf="@+id/progress_aqi"
                     app:layout_constraintTop_toBottomOf="@+id/tvAqi" />
 
                 <TextView
                     android:id="@+id/tvTerakhir"
                     android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="14dp"
+                    android:layout_marginTop="4dp"
                     android:layout_marginEnd="24dp"
                     android:fontFamily="@font/asap_bold"
                     android:gravity="end"
-                    android:text="Terakhir diperbarui 15.00, 22 Des 2023"
+                    android:text="Terakhir diperbarui"
                     android:textColor="@color/black"
                     android:textSize="12sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="24dp"
+                    android:fontFamily="@font/asap_bold"
+                    android:gravity="end"
+                    android:text="00000"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTerakhir" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
