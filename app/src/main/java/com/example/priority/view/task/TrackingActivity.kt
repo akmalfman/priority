@@ -220,7 +220,7 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback {
                     mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, 64))
 
                     if (previousLocation != null) {
-                        val distance = previousLocation!!.distanceTo(location) // Distance in meters
+                        val distance = previousLocation!!.distanceTo(location)
                         totalDistance += distance
                     }
                     previousLocation = location
