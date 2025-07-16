@@ -209,7 +209,7 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback {
                     allLatLng.add(lastLatLng)
                     mMap.addPolyline(
                         PolylineOptions()
-                            .color(Color.CYAN)
+                            .color(Color.GREEN)
                             .width(10f)
                             .addAll(allLatLng)
                     )
@@ -277,7 +277,7 @@ class TrackingActivity : AppCompatActivity(), OnMapReadyCallback {
         mMap.clear()
         allLatLng.clear()
         boundsBuilder = LatLngBounds.Builder()
-        trackingMarker = null // Clear the tracking marker
+        trackingMarker = null
     }
 
     companion object {

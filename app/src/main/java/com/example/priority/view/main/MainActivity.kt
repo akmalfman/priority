@@ -1,6 +1,7 @@
 package com.example.priority.view.main
 
 import android.Manifest
+import android.content.Intent
 import android.content.IntentSender
 import android.content.pm.PackageManager
 import android.location.Location
@@ -19,18 +20,21 @@ import com.example.priority.view.profile.ProfileFragment
 import com.example.priority.R
 import com.example.priority.data.ResultState
 import com.example.priority.view.calculator.CalculatorFragment
+import com.example.priority.view.login.SignInActivity
 import com.example.priority.view.task.DetailFragment
 import com.example.priority.view.task.TaskFragment
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.firebase.auth.FirebaseAuth
 import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity(), OnSmoothBottomBarItemSelectedListener,
     OnMapReadyCallback {
 
     private val viewModel by viewModels<DashboardViewModel>()
+    private lateinit var mAuth: FirebaseAuth
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var locationRequest: LocationRequest
@@ -39,6 +43,15 @@ class MainActivity : AppCompatActivity(), OnSmoothBottomBarItemSelectedListener,
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        mAuth = FirebaseAuth.getInstance()
+        val currentUser = mAuth.currentUser
+
+        if (currentUser == null) {
+            val intent = Intent(this, SignInActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         createLocationRequest()
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
@@ -145,7 +158,7 @@ class MainActivity : AppCompatActivity(), OnSmoothBottomBarItemSelectedListener,
                         "koordinat",
                         "getMylastLocation: ${location.latitude}, ${location.longitude}  "
                     )
-                    viewModel.getAqi(location.latitude,location.longitude,"7265fb06-74ce-469c-801d-3a99fd62093b").observe(this){result->
+                    viewModel.getAqi(location.latitude,location.longitude,"18dabcee-9808-4113-9dfc-78edd6651697").observe(this){result->
                         if (result != null) {
                             when (result) {
                                 is ResultState.Loading -> {

@@ -45,8 +45,9 @@ class DetailHistoryFragment : Fragment() {
         val userId = mAuth.currentUser?.uid ?: return
         val database = FirebaseDatabase
             .getInstance("https://priority-2e229-default-rtdb.asia-southeast1.firebasedatabase.app/")
-            .getReference("users")
-        database.child(userId).child("uploads")
+            .getReference("uploads") // Mengambil data dari tabel uploads
+
+        database.orderByChild("userId").equalTo(userId) // Mengambil unggahan milik pengguna saat ini
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val uploads = mutableListOf<Upload>()
@@ -55,17 +56,17 @@ class DetailHistoryFragment : Fragment() {
                         if (upload != null) {
                             uploads.add(upload)
                         } else {
-                            Log.e("ProfileFragment", "Invalid upload data type in uploads")
+                            Log.e("DetailHistoryFragment", "Invalid upload data type in uploads")
                         }
                     }
-                    // Set up the RecyclerView with horizontal layout
+                    // Set up the RecyclerView with vertical layout
                     binding.rvHistories.layoutManager = LinearLayoutManager(requireContext())
                     val adapter = HistoryReportAdapter(requireContext(), uploads)
                     binding.rvHistories.adapter = adapter
                 }
 
                 override fun onCancelled(error: DatabaseError) {
-                    Log.e("ProfileFragment", "Failed to fetch user history: ${error.message}")
+                    Log.e("DetailHistoryFragment", "Failed to fetch user history: ${error.message}")
                 }
             })
     }

@@ -38,7 +38,7 @@ class LeaderboardAdapter(private var leaderboardList: List<User>) :
             binding.tvRank.text = "${position + 1}" // Rank starts from 1
             binding.tvItemName.text = user.name  // Display user's fullname (mapped as 'name' in User)
             val decimalFormat = DecimalFormat("#.###")
-            val formattedDistance = decimalFormat.format(user.points)
+            val formattedDistance = decimalFormat.format(user.totalPoints)
             binding.tvItemSkore.text = formattedDistance.toString()  // Display user's points
 
             Glide.with(binding.root.context)

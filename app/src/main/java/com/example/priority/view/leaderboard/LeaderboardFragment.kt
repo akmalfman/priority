@@ -47,7 +47,7 @@ class LeaderboardFragment : Fragment() {
                 for (userSnapshot in dataSnapshot.children) {
                     val userId = userSnapshot.key ?: continue
                     val name = userSnapshot.child("fullname").getValue(String::class.java) ?: "Unknown"
-                    val points = userSnapshot.child("points").getValue(Double::class.java) ?: 0.0
+                    val points = userSnapshot.child("totalPoints").getValue(Double::class.java) ?: 0.0
                     val profileImageUrl = userSnapshot.child("profileImageUrl").getValue(String::class.java) ?: ""
 
                     if (name.isNotBlank() && points >= 0) { // Validasi data
@@ -57,7 +57,7 @@ class LeaderboardFragment : Fragment() {
                         Log.w("Leaderboard", "Invalid data for userId: $userId")
                     }
                 }
-                leaderboardList = tempList.sortedByDescending { it.points }
+                leaderboardList = tempList.sortedByDescending { it.totalPoints }
                 adapter.updateData(leaderboardList)
             }
 

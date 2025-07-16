@@ -26,6 +26,7 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import kotlin.math.*
 
 class TrackingFragment : Fragment(), OnMapReadyCallback {
 
@@ -162,19 +163,33 @@ class TrackingFragment : Fragment(), OnMapReadyCallback {
 
                     allLatLng.add(lastLatLng)
                     mMap.addPolyline(
-                        PolylineOptions().color(Color.CYAN).width(10f).addAll(allLatLng)
+                        PolylineOptions().color(Color.RED).width(10f).addAll(allLatLng)
                     )
 
                     boundsBuilder.include(lastLatLng)
                     mMap.animateCamera(CameraUpdateFactory.newLatLngBounds(boundsBuilder.build(), 64))
 
-                    previousLocation?.let {
-                        totalDistance += it.distanceTo(location)
+                    if (previousLocation != null) {
+                        totalDistance += haversine(
+                            previousLocation!!.latitude, previousLocation!!.longitude,
+                            location.latitude, location.longitude
+                        )
                     }
                     previousLocation = location
                 }
             }
         }
+    }
+
+    private fun haversine(lat1: Double, lon1: Double, lat2: Double, lon2: Double): Double {
+        val R = 6371e3
+        val dLat = Math.toRadians(lat2 - lat1)
+        val dLon = Math.toRadians(lon2 - lon1)
+        val a = sin(dLat / 2) * sin(dLat / 2) +
+                cos(Math.toRadians(lat1)) * cos(Math.toRadians(lat2)) *
+                sin(dLon / 2) * sin(dLon / 2)
+        val c = 2 * atan2(sqrt(a), sqrt(1 - a))
+        return R * c
     }
 
     private fun updateTrackingStatus(newStatus: Boolean) {

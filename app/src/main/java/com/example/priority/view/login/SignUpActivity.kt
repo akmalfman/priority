@@ -54,8 +54,7 @@ class SignUpActivity : AppCompatActivity() {
                     } else {
 //                        Log.e("SignUpActivity", "Gagal membuat akun: ${task.exception}")
 //                        Toast.makeText(this, "Gagal membuat akun", Toast.LENGTH_SHORT).show()
-                        val exception = task.exception
-                        when (exception) {
+                        when (val exception = task.exception) {
                             is FirebaseAuthInvalidCredentialsException -> {
                                 // Handle the case where the email address is badly formatted
                                 Log.e("SignUpActivity", "Gagal membuat akun: ${exception.message}")
@@ -79,7 +78,7 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
 
-    private fun validateInput(fullname: String, email: String, password: String, confirmPassword: String): Boolean {
+    fun validateInput(fullname: String, email: String, password: String, confirmPassword: String): Boolean {
         if (fullname.isEmpty()) {
             Toast.makeText(this, "Ups! Nama Lengkap belum diisi.", Toast.LENGTH_SHORT).show()
             return false

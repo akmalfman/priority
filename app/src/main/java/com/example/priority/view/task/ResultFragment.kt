@@ -178,13 +178,14 @@ class ResultFragment : Fragment() {
         binding.btnNext.visibility = View.VISIBLE
         binding.btnNext.setOnClickListener {
             val bundle = Bundle()
-            bundle.putDouble("distance", emissions)
+            bundle.putDouble("emissions", emissions)
+            bundle.putDouble("distance", distance)
 
-            val resultFragment = CameraFragment()
-            resultFragment.arguments = bundle
+            val cameraFragment = CameraFragment()
+            cameraFragment.arguments = bundle
 
             parentFragmentManager.beginTransaction()
-                .replace(R.id.frame, resultFragment)
+                .replace(R.id.frame, cameraFragment)
                 .addToBackStack(null)
                 .commit()
         }

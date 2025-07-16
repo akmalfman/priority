@@ -1,5 +1,6 @@
 package com.example.priority.view.main
 
+import LeaderboardFragment
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
@@ -19,6 +20,7 @@ import com.example.priority.R
 import com.example.priority.data.ResultState
 import com.example.priority.data.response.AqiResponse
 import com.example.priority.databinding.FragmentDashboardBinding
+import com.example.priority.view.task.DetailFragment
 import com.example.priority.view.task.TaskFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -85,16 +87,26 @@ class DashboardFragment : Fragment(){
         mAuth = FirebaseAuth.getInstance()
 
         binding.btnRekomendasi.setOnClickListener {
-            val taskFragment = TaskFragment()
+            val detailFragment = DetailFragment()
 
             // Ganti fragment
             requireActivity().supportFragmentManager.beginTransaction()
-                .replace(R.id.frame, taskFragment)
+                .replace(R.id.frame, detailFragment)
                 .addToBackStack(null)
                 .commit()
 
             // Panggil method di interface untuk memperbarui SmoothBottomBar di MainActivity
             listener?.onItemSelected(1)
+        }
+
+        binding.circleImageView.setOnClickListener {
+            val leaderboardFragment = LeaderboardFragment()
+
+            // Ganti fragment
+            requireActivity().supportFragmentManager.beginTransaction()
+                .replace(R.id.frame, leaderboardFragment)
+                .addToBackStack(null)
+                .commit()
         }
 
         // Tampilkan nama pengguna atau pesan jika belum login
@@ -156,7 +168,7 @@ class DashboardFragment : Fragment(){
         val userId = mAuth.currentUser?.uid
 
         if (userId != null) {
-            database.child(userId).child("points").addListenerForSingleValueEvent(object :
+            database.child(userId).child("totalPoints").addListenerForSingleValueEvent(object :
                 ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val points = snapshot.getValue(Double::class.java) ?: 0.0

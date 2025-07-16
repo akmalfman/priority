@@ -156,7 +156,7 @@ class EditProfileFragment : Fragment() {
                 }
                 auth.currentUser?.updateProfile(profileUpdates)?.addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(requireContext(), "Profil berhasil diperbarui", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Profile berhasil diperbarui", Toast.LENGTH_SHORT).show()
                     } else {
                         Toast.makeText(requireContext(), "Gagal memperbarui nama di Auth", Toast.LENGTH_SHORT).show()
                     }

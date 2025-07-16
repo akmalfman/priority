@@ -32,9 +32,12 @@ class HistoryReportAdapter(private val context: Context, private val uploads: Li
         // Set text values
         val decimalFormat = DecimalFormat("#.###")
         val formattedPoints = decimalFormat.format(upload.points)
+        val formattedDistance = decimalFormat.format(upload.distance)
+
         holder.binding.tvPointValue.text = formattedPoints.toString()
         holder.binding.tvDate.text = upload.date
         holder.binding.tvClock.text = upload.clock
+        holder.binding.tvDistanceValue.text = formattedDistance.toString()
     }
 
     override fun getItemCount(): Int {

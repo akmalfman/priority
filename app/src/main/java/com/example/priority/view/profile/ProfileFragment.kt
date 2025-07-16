@@ -67,8 +67,9 @@ class ProfileFragment : Fragment() {
         val userId = mAuth.currentUser?.uid ?: return
         val database = FirebaseDatabase
             .getInstance("https://priority-2e229-default-rtdb.asia-southeast1.firebasedatabase.app/")
-            .getReference("users")
-        database.child(userId).child("uploads")
+            .getReference("uploads") // Mengambil data dari tabel uploads
+
+        database.orderByChild("userId").equalTo(userId) // Mengambil hanya unggahan milik pengguna saat ini
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val imageUrls = mutableListOf<String>()
@@ -163,13 +164,19 @@ class ProfileFragment : Fragment() {
         val userId = mAuth.currentUser?.uid ?: return
         val database = FirebaseDatabase
             .getInstance("https://priority-2e229-default-rtdb.asia-southeast1.firebasedatabase.app/")
-            .getReference("users")
-        database.child(userId).child("points")
+            .getReference("uploads")
+
+        // Mengambil poin berdasarkan userId
+        database.orderByChild("userId").equalTo(userId)
             .addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
-                    val points = snapshot.getValue(Double::class.java) ?: 0.0
+                    var totalPoints = 0.0
+                    for (childSnapshot in snapshot.children) {
+                        val points = childSnapshot.child("points").getValue(Double::class.java) ?: 0.0
+                        totalPoints += points
+                    }
                     val decimalFormat = DecimalFormat("#.###")
-                    val formattedPoints = decimalFormat.format(points)
+                    val formattedPoints = decimalFormat.format(totalPoints)
                     binding.tvPointValue.text = formattedPoints
                 }
 

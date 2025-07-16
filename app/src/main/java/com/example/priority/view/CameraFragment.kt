@@ -53,7 +53,8 @@ class CameraFragment : Fragment() {
             Log.d("Image File", "showImage: ${imageFile.path}")
 
             val uid = getCurrentUserId()
-            val distance = arguments?.getDouble("distance") ?: 0.0
+            val distances = arguments?.getDouble("distance") ?: 0.0
+            val emissions = arguments?.getDouble("emissions") ?: 0.0
             val database = FirebaseDatabase
                 .getInstance("https://priority-2e229-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .reference
@@ -62,23 +63,29 @@ class CameraFragment : Fragment() {
             val currentDate = SimpleDateFormat("dd MMM, yyyy", Locale.getDefault()).format(Date())
             val currentTime = SimpleDateFormat("HH:mm", Locale.getDefault()).format(Date())
 
+            // Generate a unique ID for the upload
+            val uploadId = database.child("uploads").push().key ?: ""
+
             val dataMap = mapOf(
+                "uploadId" to uploadId, // Menyimpan uploadsId
+                "userId" to uid, // Menyimpan userId
                 "imageUrl" to uri.toString(),
-                "points" to distance,
+                "distance" to distances,
+                "points" to emissions,
                 "date" to currentDate,
                 "clock" to currentTime
             )
 
             if (uid != null) {
-                // Push new data
-                database.child("users").child(uid).child("uploads").push().setValue(dataMap)
+                // Push new data to the uploads table
+                database.child("uploads").child(uploadId).setValue(dataMap)
                     .addOnSuccessListener {
                         // Retrieve current points
-                        database.child("users").child(uid).child("points").get().addOnSuccessListener { snapshot ->
+                        database.child("users").child(uid).child("totalPoints").get().addOnSuccessListener { snapshot ->
                             val currentPoints = snapshot.getValue(Double::class.java) ?: 0.0
-                            val newTotalPoints = currentPoints + distance
+                            val newTotalPoints = currentPoints + emissions
 
-                            database.child("users").child(uid).child("points").setValue(newTotalPoints)
+                            database.child("users").child(uid).child("totalPoints").setValue(newTotalPoints)
                                 .addOnSuccessListener {
                                     showToast("Data berhasil disimpan dan poin diperbarui")
                                 }

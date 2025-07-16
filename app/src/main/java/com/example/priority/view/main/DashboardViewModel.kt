@@ -1,10 +1,15 @@
 package com.example.priority.view.main
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
 import com.example.priority.data.ResultState
 import com.example.priority.data.api.ApiConfigg
 import com.example.priority.data.response.AqiResponse
+import com.example.priority.data.response.Current
+import com.example.priority.data.response.Data
+import com.example.priority.data.response.Pollution
 import com.google.gson.Gson
 import retrofit2.HttpException
 
@@ -21,5 +26,4 @@ class DashboardViewModel : ViewModel() {
             emit(errorResponse.status?.let { ResultState.Error(it) })
         }
     }
-
 }
