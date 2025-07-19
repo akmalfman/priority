@@ -1,33 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.profile.FaqFragment">
-
 
     <ImageView
         android:id="@+id/img_item_photo"
         android:layout_width="125dp"
         android:layout_height="24dp"
-        android:layout_marginStart="18dp"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="18dp"
-        android:paddingTop="0dp"
-        android:paddingBottom="3dp"
-        android:scaleType="centerCrop"
         android:src="@drawable/logo_txt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@drawable/logo_txt" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imgArrowBack"
         android:layout_width="30dp"
         android:layout_height="30dp"
         android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/baseline_arrow_back_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/img_item_photo" />
@@ -40,35 +34,170 @@
         android:fontFamily="@font/fredo"
         android:text="FAQ"
         android:textColor="#6DB9EF"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/imgArrowBack"
         app:layout_constraintStart_toEndOf="@+id/imgArrowBack"
         app:layout_constraintTop_toTopOf="@+id/imgArrowBack" />
 
-    <TextView
-        android:id="@+id/tvFaqValue1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/fredo"
-        android:text="Kenapa aplikasi ini dibuat?"
-        android:textColor="#6DB9EF"
-        android:textSize="18sp"
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:clipToPadding="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgArrowBack" />
+        app:layout_constraintTop_toBottomOf="@+id/imgArrowBack">
 
-    <TextView
-        android:id="@+id/tvFaqValue2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:fontFamily="@font/fredo"
-        android:text="Bagaimana cara menggunakan aplikasi ini?"
-        android:textColor="#6DB9EF"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvFaqValue1" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="80dp">
 
+            <TextView
+                android:id="@+id/tvFaqValue1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/fredo"
+                android:text="Apa itu aplikasi PRIORITY?"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvFaqDetail1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="4dp"
+                android:text="PRIORITY adalah sebuah aplikasi berbasis mobile untuk membantu pengguna menghitung dan memantau emisi karbon individu."
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/tvFaqValue1"
+                app:layout_constraintStart_toStartOf="@id/tvFaqValue1"
+                app:layout_constraintTop_toBottomOf="@id/tvFaqValue1"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvFaqValue2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/fredo"
+                android:text="Kenapa aplikasi ini dibuat?"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@id/tvFaqValue1"
+                app:layout_constraintStart_toStartOf="@id/tvFaqValue1"
+                app:layout_constraintTop_toBottomOf="@id/tvFaqDetail1" />
+
+            <TextView
+                android:id="@+id/tvFaqDetail2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="4dp"
+                android:text="Aplikasi PRIORITY dibuat untuk membantu masyarakat dalam menghitung dan mengurangi emisi karbon mereka. Selain itu juga untuk meningkatkan kesadaran masyarakat akan pentingnya menjaga lingkungan."
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/tvFaqValue2"
+                app:layout_constraintStart_toStartOf="@id/tvFaqValue2"
+                app:layout_constraintTop_toBottomOf="@id/tvFaqValue2"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvFaqValue3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/fredo"
+                android:text="Bagaimana cara menghitung emisi karbon saya?"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@id/tvFaqValue1"
+                app:layout_constraintStart_toStartOf="@id/tvFaqValue1"
+                app:layout_constraintTop_toBottomOf="@id/tvFaqDetail2" />
+
+            <TextView
+                android:id="@+id/tvFaqDetail3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="4dp"
+                android:text="Kamu bisa menghitung emisi secara manual pada fitur kalkulator dengan memasukan data seperti jenis kendaraan, bahan bakar dan jarak tempuh. Atau, kamu bisa menggunakan fitur tugas yang dapat mencatat pergerakan menggunakan GPS, lalu menghitung emisi berdasarkan transportasi dan bahan bakar yang digunakan."
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/tvFaqValue3"
+                app:layout_constraintStart_toStartOf="@id/tvFaqValue3"
+                app:layout_constraintTop_toBottomOf="@id/tvFaqValue3"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvFaqValue4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/fredo"
+                android:text="Apa kegunaan poin yang saya dapatkan?"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@id/tvFaqValue1"
+                app:layout_constraintStart_toStartOf="@id/tvFaqValue1"
+                app:layout_constraintTop_toBottomOf="@id/tvFaqDetail3" />
+
+            <TextView
+                android:id="@+id/tvFaqDetail4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="4dp"
+                android:text="Poin yang dikumpulkan ketika menyelesaikan tantangan dapat ditukar dengan hadiah atau voucher sesuai dengan ketentuan yang berlaku."
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/tvFaqValue4"
+                app:layout_constraintStart_toStartOf="@id/tvFaqValue4"
+                app:layout_constraintTop_toBottomOf="@id/tvFaqValue4"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvFaqValue5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/fredo"
+                android:text="Apakah ada leaderboard atau peringkat pengguna?"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@id/tvFaqValue1"
+                app:layout_constraintStart_toStartOf="@id/tvFaqValue1"
+                app:layout_constraintTop_toBottomOf="@id/tvFaqDetail4" />
+
+            <TextView
+                android:id="@+id/tvFaqDetail5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="4dp"
+                android:text="Ya, terdapat leaderboard yang menunjukkan peringkat pengguna berdasarkan poin terbanyak agar menjadi motivasi bagi pengguna lain untuk terus berkontribusi terhadap lingkungan."
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="@id/tvFaqValue5"
+                app:layout_constraintStart_toStartOf="@id/tvFaqValue5"
+                app:layout_constraintTop_toBottomOf="@id/tvFaqValue5"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
