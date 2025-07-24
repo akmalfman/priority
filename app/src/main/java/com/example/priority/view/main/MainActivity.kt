@@ -14,6 +14,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.example.priority.databinding.ActivityMainBinding
 import com.example.priority.utils.OnSmoothBottomBarItemSelectedListener
 import com.example.priority.view.profile.ProfileFragment
@@ -67,9 +68,25 @@ class MainActivity : AppCompatActivity(), OnSmoothBottomBarItemSelectedListener,
     }
 
     private fun gantiFragment(fragment: Fragment) {
+        supportFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+
         val transaksi = supportFragmentManager.beginTransaction()
         transaksi.replace(R.id.frame, fragment)
+        transaksi.disallowAddToBackStack()
         transaksi.commit()
+    }
+
+    override fun onBackPressed() {
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.frame)
+
+        if (currentFragment !is DashboardFragment) {
+            // Kembali ke Dashboard jika belum di Dashboard
+            gantiFragment(DashboardFragment())
+            binding.bottomBar.itemActiveIndex = 0 // pastikan ini index menu dashboard
+        } else {
+            // Sudah di dashboard, keluar aplikasi
+            super.onBackPressed()
+        }
     }
 
     override fun onItemSelected(index: Int) {

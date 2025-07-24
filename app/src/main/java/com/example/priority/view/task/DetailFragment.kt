@@ -32,7 +32,8 @@ class DetailFragment : Fragment() {
 //            startActivity(intent)
 
             val trackingFragment = TrackingFragment()
-            parentFragmentManager.beginTransaction()
+//            parentFragmentManager.beginTransaction()
+            requireActivity().supportFragmentManager.beginTransaction()
                 .replace(R.id.frame, trackingFragment) // pastikan ID sesuai dengan container di layout
                 .addToBackStack(null) // tambahkan ke back stack jika Anda ingin bisa kembali
                 .commit()
